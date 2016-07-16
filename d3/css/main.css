@@ -1,0 +1,112 @@
+@import 'https://fonts.googleapis.com/css?family=Catamaran';
+*{
+    font-family:Catamaran;
+    /*|Comfortaa|Dosis|Raleway|Sanchez;*/
+}
+
+body, html{padding:10;
+margin:0;
+}
+
+.subtitle > *{
+    vertical-align: top;
+    display: inline;
+    margin: 0 auto;
+}
+
+#limit em {
+    margin-top:-17px;
+    font-size: 2.5em;
+    font-style: normal}
+
+#limit input, #limit em {
+    top:-10px;
+    display:block;
+    width:100%;
+    text-align:center;
+}
+.header {
+    padding:20px;}
+.fullwidth {
+    display:block;
+    margin:auto;
+    width:100%;
+    min-width:680;}
+.gray {background-color: #ececec;}
+#limit {display:inline-block}
+
+#limit > input {font-size:2em;
+    display:inline-block;
+width:120px;
+border:none;}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+h1 {font-size:3em;}
+g.axis path, g.axis line {
+    fill:none;
+    stroke:black;
+}
+g.axis text, g.bubbles text {
+    fill:black;
+    font-family:sans-serif;
+}
+
+g.bubbles line {
+    stroke-width:5;
+    stroke:black;
+}
+
+/*g.bubbles circle {*/
+    /*fill:rgba(255,0,64,0.5);*/
+    /*stroke:rgb(255,0,64);*/
+    /*stroke-width:3;*/
+/*}*/
+/*g.bubbles text {*/
+/*text-anchor:middle;*/
+/*alignment-baseline:middle;*/
+/*opacity:0;*/
+/*pointer-events:all;*/
+/*transition:1s;*/
+/*}*/
+
+g.bubbles circle {
+    /*fill:rgba(255,255,255,0.9);*/
+    /*visibility: hidden;*/
+    opacity:0;
+    stroke: rgba(185, 188, 75, 1);
+    stroke-width:0;
+    z-index:1010;
+}
+
+g.bubbles text {
+    /*transition:2s;*/
+    font-family:Catamaran;
+    color: black;
+    text-anchor:middle;
+    alignment-baseline:middle;
+    opacity:1;
+    pointer-events:all;
+    transition:1.3s;
+    z-index:0;
+}
+/*g.bubbles text:hover {*/
+    /*opacity:1;*/
+    /*font-size:3em;*/
+/*}*/
+
+g.threads line {
+    fill:none;
+    stroke:black;
+    opacity:0.5;
+}
+
+g.bubbles:hover{
+    background-color: blue;
+}
+
+
+

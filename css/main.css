@@ -1,0 +1,44 @@
+* {
+    font-family: "Helvetica Neue";
+    text-align: center;
+    position: relative;
+    right: 0px;
+    margin-left:auto;
+    margin-right:auto;
+    /*border:1px dashed lightcoral;*/
+}
+
+.menuRow {
+    padding: 10px;
+    list-style: none;
+    position: relative;
+
+}
+.menuButton{
+    width:33%;
+    height:50px;
+
+    display:inline;
+    /*float: left;*/
+    position: relative;
+    padding: 10px;
+}
+
+ul {
+    padding: 10px;
+    list-style: none;
+    position: relative;
+
+}
+li {
+    display:inline-block;
+    /*float: left;*/
+    position: relative;
+    padding: 10px;
+}
+
+.container {
+    max-width: 800px;
+    padding-top:20px;
+    margin: auto
+}

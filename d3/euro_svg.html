@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sawka.pro</title>
+    <!--<link rel="stylesheet" href="css/main.css">-->
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/euro_data.js" charset="utf-8"></script>
+    <script src="js/d3-tip.js" charset="utf-8"></script>
+
+    <script src="js/underscore.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/euro.css">
+
+</head>
+<body>
+
+
+<div id='graph2'></div>
+<div id="container">
+    <!--<div id="sections">-->
+    <!--<div id='graph'>-->
+
+
+    <!--<svg>-->
+    <!--<defs>-->
+    <!--<pattern id="ball" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xmlns:xlink="img/ball.svg" xlink:href="img/ball.svg" width="20"-->
+    <!--height="20"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Islandia" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xmlns:xlink="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg"-->
+    <!--xlink:href="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Albania" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Belgia" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Belgium_%28state%29.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Włochy" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Italy_%281-2%29.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Irlandia" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Ireland3-2.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Hiszpania" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/0/03/Color_banner.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Ukraina" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Węgry" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/b/bc/Civil_Ensign_of_Hungary.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Francja" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Polska" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Rosja" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Szwajcaria" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Switzerland_within_2to3.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Szwecja" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Ostergotland_clear.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Rumunia" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Anglia" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Czechy" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Austria" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg " width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Chorwacja" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Słowacja" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg" width="145"-->
+    <!--height="90"></image>-->
+    <!--< /pattern>-->
+    <!--<pattern id="Turcja" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--<pattern id="Niemcy" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Portugalia" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="NorthernIreland" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Northern_Ireland.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Irlandia Północna" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Northern_Ireland.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="" width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--<pattern id="Walia" patternUnits="objectBoundingBox" width="1" height="1" x="0" y="0">-->
+    <!--<image xlink:href="https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Wales_2.svg"-->
+    <!--width="145" height="90"></image>-->
+    <!--</pattern>-->
+    <!--</defs>-->
+    <!--</svg>-->
+
+
+    <!--</div>-->
+    <!--</div>-->
+</div>
+
+<!--<script src="js/euro.js" charset="utf-8"></script>-->
+<script src="js/euroNOSVG.js" charset="utf-8"></script>
+<script src="js/graph-scroll.js" charset="utf-8"></script>
+
+</body>
+</html>

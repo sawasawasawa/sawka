@@ -1,0 +1,194 @@
+body {margin-top:16;}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+#container {
+    position: relative;
+    overflow: auto;
+}
+
+#sections {
+    width: 200px;
+    float: left;
+}
+
+#graph {
+    width: 100%;
+    float: left;
+    margin-left: 40px;
+}
+
+#graph.graph-scroll-fixed {
+    /*position: fixed;*/
+    /*top: 0px;*/
+    margin-left: 240px;
+}
+
+circle {
+    transition: 0.5s
+}
+
+.rect {
+    border: 0px solid black;
+    min-width: 20px;
+    min-height: 20px;
+    background: url('../img/arnold.jpg');
+    background-size: cover;
+    -webkit-box-shadow: 10px 7px 135px -21px rgba(0,0,0,0.63);
+    -moz-box-shadow: 10px 7px 135px -21px rgba(0,0,0,0.63);
+    box-shadow: 10px 7px 135px -21px rgba(0,0,0,0.63);
+}
+
+#graph2 {
+    display: inline-block;
+    position: absolute
+}
+
+.ball {
+    background: url(img/ball.svg)";
+    background-size: cover;
+
+}
+
+.Islandia {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg);
+        background-size:cover
+}
+
+.Albania {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg);
+        background-size:cover
+}
+
+.Belgia {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Belgium_%28state%29.svg);
+        background-size:cover
+}
+
+.Włochy {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Italy_%281-2%29.svg);
+        background-size:cover
+}
+
+.Irlandia {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Ireland3-2.svg);
+        background-size:cover
+}
+
+.Hiszpania {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/03/Color_banner.svg);
+        background-size:cover
+}
+
+.Ukraina {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg);
+        background-size:cover
+}
+
+.Węgry {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/bc/Civil_Ensign_of_Hungary.svg);
+        background-size:cover
+}
+
+.Francja {
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg);
+        background-size:cover
+}
+.Polska {
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg);
+        background-size:cover
+}
+.Rosja {
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg);
+        background-size:cover
+}
+.Szwajcaria {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Switzerland_within_2to3.svg);
+        background-size:cover
+}
+
+.Szwecja {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Ostergotland_clear.svg);
+        background-size:cover
+}
+
+.Rumunia {
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg);
+        background-size:cover
+}
+.Anglia {
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg);
+        background-size:cover
+}
+.Czechy {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg);
+        background-size:cover
+}
+
+.Austria {
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg) ;
+        background-size:cover
+}
+.Chorwacja {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg);
+        background-size:cover
+}
+.Słowacja {
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg);
+        background-size:cover
+}
+.Turcja {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg);
+        background-size:cover
+}
+
+.Niemcy{background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg);
+        background-size:cover
+}
+.Portugalia {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg);
+        background-size:cover;
+}
+
+.NorthernIreland {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Northern_Ireland.svg);
+        background-size:cover
+}
+
+.Irlandia {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Northern_Ireland.svg);
+    background-size:cover}
