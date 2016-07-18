@@ -1,5 +1,6 @@
-
-
+var showingAverages =  false;
+var prevScrollPos = window.scrollY;
+var histogram = false ;
 
 var goalData = [];
 var goalBasket = d3.select('body')
@@ -34,6 +35,13 @@ var matchLengthOnTimeline = 100;
 var rectWidth = Math.round(2.1 * flagWidth / 5) * 5;
 
 data = _.sortBy(data, "date");
+data = _.sortBy(data, function(o) {
+
+    var dateArr = o.date.split(".");
+    var date = new Date(parseInt(dateArr[2], 10),
+        parseInt(dateArr[1], 10) - 1,
+        parseInt(dateArr[0], 10));
+    return date; })
 teams = _.unique(data, false, 'home');
 
 
@@ -43,7 +51,6 @@ data = _.each(data, function (d, i) {
 for (i = 0; i < data.length; i++) {
     var goals = data[i].goals;
 
-
     for (k = 0; k < goals.length; k++) {
         var goalInfo = goals[k];
         goalInfo.matchId = data[i].matchId;
@@ -51,6 +58,9 @@ for (i = 0; i < data.length; i++) {
         goalData.push(goalInfo)
     }
 }
+
+
+
 var myDiv = d3.select("#mainContainer");
 var topContainerHeight = 70;
 var topContainer = d3.select('#topContainer');
@@ -78,7 +88,7 @@ myDiv.style("width", myDivWidth + 'px')
     .style("height", myDivHeight + 'px');
 
 var divMiddleAbsolute = myDivWidth / 2;
-var goalsDiv = d3.select('body')
+var goalsDiv = d3.select('#mainContainer')
         .append('div')
         .classed('goalsDiv', true)
         // .style('width', myDivWidth+'px')
@@ -88,34 +98,13 @@ var body = d3.select('body');
 body.style('height', 3 * myDivHeight + 'px');
 
 
-var yScale = d3.scale.linear()
+var yScale = d3.scaleLinear()
     .domain([0, totalLength_SIMPLIFIED])
     .range([marginTop+topContainerHeight, topContainerHeight+myDivHeight - marginTop]);
 
-var xScale = d3.scale.linear()
+var xScale = d3.scaleLinear()
     .domain([0, totalLength_SIMPLIFIED])
     .range([marginTop, myDivWidth - marginTop]);
-
-// var yAxis = d3.myDiv.axis()
-//     .scale(yScale)
-//     .orient("left")
-//     .ticks(10);
-
-// myDiv.append("g")
-//     .attr("class", "y axis")
-// //     .attr("transform", "translate(0," + marginTop + ")")
-//     .call(yAxis);
-
-// var tip = d3.tip()
-//     .attr('class', 'd3-tip')
-//     .offset([10, 50])
-//     .html(function(d) {
-//         return d.timing +" minuta </br>" +
-//             "<strong>Strzelec:</strong> <span style='color:red'>" + d.player + "</span></br>"+
-//                 "<strong>Asysta:</strong> <span style='color:red'>" + d.assist + "</span></br>";
-//     })
-//
-// myDiv.call(tip);
 
 var goalSvg = topContainer.append('div')
         .style('position', 'fixed')
@@ -170,7 +159,7 @@ function drawFlags() {
                     // .style('left', (myDivWidth/2 + j * (myDivWidth + 100)) + 'px')
                     .style('width', flagWidth + "px")
                     .style('height', flagHeight + "px")
-                    .transition().delay(100 * i / 5).duration(250 * i / 2 + 500)
+                    // .transition().delay(100 * i / 5).duration(250 * i / 2 + 500)
                     .style("left", divMiddleAbsolute + offset + 'px');
 
                 // console.log(_teams[j])
@@ -212,7 +201,7 @@ goalsDiv.selectAll("div")
             .style("left", (divMiddleAbsolute + 2000 * Math.sign(offset))+'px')
             .style("top", scaledY + 'px')
             .attr("id", i)
-            .transition().delay(200 + 100 * d.matchNumber ).duration(250 * d.matchNumber / 2)
+            // .transition().delay(200 + 100 * d.matchNumber ).duration(250 * d.matchNumber / 2)
             .style("left", d.xPosStarting + 'px')
             .style("border-radius", "50%")
             .style("top", +scaledY + 'px')
@@ -232,77 +221,253 @@ goalsDiv.selectAll("div")
 
     });
 }
+var srollIndicator =  d3.select('body').append('div')
+    .attr('id', 'scrollIndicator)')
+    .style('position','fixed')
+    .style('top','500px')
+    .style('left','100px');
 
 window.onscroll = function () {
-    myFunction()
-};
-
-function myFunction() {
     var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    var scrollDown = Math.sign(window.scrollY-prevScrollPos) >=0 ? 1 :0;
+    prevScrollPos = scrollTop;
 
-    if (scrollTop>myDivHeight +500) {
-        myDiv.append('div').html('<h1>YOOOO</h1>')
-    }else {
-        goalsDiv.selectAll(".ball")
-            .each(function (d, i) {
-               
-                var top = parseInt(d3.select(this).style('top').replace('px', ''));
-                var position = d3.select(this).style('position');
 
-                var totalTime = (d.matchNumber ? d.matchNumber - 1 : 0) * 90 + parseInt(d.timing);
-                var minutes = totalTime % 60;
-                var sixtyMinutes = d.timing > 60 ? 1 : 0;
+    srollIndicator.html('<h1>scrollTop: '+Math.round(scrollTop)+'</h1>');
+    if (scrollTop<myDivHeight){
+        ballsTransitionMiddleTop(scrollTop);
+        goalsDiv.classed('hist', false);
+    }
+    if (goalsDiv.classed('hist') &&scrollTop<myDivHeight+500){
+        moveBallsTop()
+        goalsDiv.classed('hist', false);
+    }
+    if (scrollTop>myDivHeight +500&& !goalsDiv.classed('hist')){
+        drawHistogramFromBalls();
+    }
+    if (scrollTop>myDivHeight +1500){
+        griezmann();
+    }
+};
+// var bestScorers =[];
+// dataModified = _.each(goalData, function (g){
+//     g.
+// })
+// allScorers = _.unique(goalData, "player", function(f){});
+// console.log('___-> allScorers', allScorers);
+//
+// function griezmann() {
+//     console.log('___-> griezmann');
+//     goalsDiv.selectAll(".ball")
+//         .each(function (d, i) {
+//             d3.select(this)
+//                 .classed('timeline-top', true)
+//                 .transition().delay(1).duration(500)
+//                 .style('width', '15px')
+//                 .style('height', '15px')
+//                 .style('top', marginTop + 'px')
+//                 .style('left', d.xPosWhenFixedToTop + 'px')
+//
+//             ;
+//         });
+// }
 
-                if (d.matchNumber == 0) {
-                    console.log(d);
-                    console.log('PINGWIN: top', top);
-                    console.log('PINGWIN: position', position);
-                    console.log('PINGWIN: d.matchNumber', d.matchNumber);
-                    console.log('PINGWIN: d.timing', d.timing);
-                    console.log('PINGWIN: totalTime', totalTime);
-                    console.log('PINGWIN: sixtyMinutes', sixtyMinutes);
-                    console.log('PINGWIN: minutes', minutes);
+
+function drawHistogram() {
+    var x_avg = d3.scaleLinear()
+        .domain([0, 120])
+        .range([0, myDivWidth]);
+
+    var binsData = _.map(goalData, function (d) {
+            return parseInt(d.timing)
+        }
+    );
+
+    var bins = d3.histogram()
+        .domain(x_avg.domain())
+        .thresholds(x_avg.ticks(10))
+        (binsData);
+    var y_avg = d3.scaleLinear()
+        .domain([0, d3.max(binsData, function (d) {
+            return d;
+        })])
+        .range([0, myDivHeight / 2 + marginTop]);
+
+    var svg_avg = myDiv.append("svg")
+        .attr("id", 'svg_avg')
+        .style("position", 'fixed')
+        .style("top", 0+'px')
+        .style("left", 0+'px')
+        .style("z-index", '10001')
+        .attr("width", myDivWidth + 2 * marginTop)
+        .attr("height", window.innerHeight / 2 + marginTop)
+        .append("g")
+        .attr("transform", "translate(" + marginTop + "," + marginTop + ")");
+    var bar_avg = svg_avg.selectAll(".bar")
+        .data(bins)
+        .enter().append("g")
+        .attr("class", "bar")
+        .attr("transform", function (d) {
+            return "translate(" + Math.round(x_avg(d.x0)) + "," + Math.round(window.innerHeight / 2 - y_avg(d.length)) + ")";
+        })
+        ;
+
+    bar_avg.append("rect")
+        .attr("x", 1)
+        .attr("width", x_avg(bins[0].x1) - x_avg(bins[0].x0) - 1)
+        .attr("height", function (d) {
+            return y_avg(d.length);
+        });
+
+    bar_avg.append("text")
+        .attr("dy", ".75em")
+        .attr("y", 6)
+        .attr("x", (x_avg(bins[0].x1) - x_avg(bins[0].x0)) / 2)
+        .attr("text-anchor", "middle")
+        .text(function (d) {
+            return d.length;
+        });
+
+    svg_avg.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + window.innerHeight / 2 + ")")
+        .call(d3.axisBottom(x_avg));
+
+    goalsDiv.selectAll(".ball")
+        .each(function (d, i) {
+            d3.select(this)
+                .style('position', 'fixed')
+                .transition().delay(0).duration(500)
+                .style('top', window.innerHeight / 2 + 'px')
+                .style('left', d.xPosWhenFixedToTop + 'px')
+            ;
+
+        });
+    showingAverages= true;
+}
+function drawHistogramFromBalls(){
+    var histogramData = {   10:0,20:0, 30:0,40:0,50:0,60:0,70:0,80:0,90:0,100:0,110:0,120:0   };
+    var usedData = {   10:0,20:0, 30:0,40:0,50:0,60:0,70:0,80:0,90:0,100:0,110:0,120:0   };
+    // console.log('___-> histogramData', histogramData);
+    _.each(goalData, function(goal){
+        var goalTenMin = Math.floor(parseInt(goal.timing)/10+1)*10;
+        histogramData[goalTenMin]+=1
+    });
+    histBallRadius=30;
+    goalsDiv.classed('hist', true);
+    console.log('___-> drawHistogramFromBalls');
+    d3.selectAll('.ball')
+        .each(function (d, i) {
+            var goalTenMin =Math.floor(parseInt(d.timing)/10+1)*10;
+            histX = window.innerWidth/2-12*histBallRadius+2*histBallRadius*goalTenMin/10;
+            histY = window.innerHeight/2-1*histBallRadius*usedData[goalTenMin];
+            d3.select(this)
+                .classed('hist', true)
+                .classed('timeline-top', false)
+                .transition().delay(1).duration(500)
+                .style('top', histY + 'px')
+                .style('left', histX + 'px')
+                .style('width', histBallRadius+ 'px')
+                .style('height', histBallRadius+ 'px')
+            ;
+            usedData[goalTenMin] +=1;
+        });
+
+    var histAxis = goalsDiv.append('div')
+        .style('position', 'fixed')
+        .style('top', window.innerHeight/2 + 'px')
+        .style('left', 0 + 'px')
+        // .style('left', window.innerWidth/2-12*histBallRadius + 'px')
+        .style('width',  '100%')
+        .style('height', 3*histBallRadius+ 'px')
+        .style('background', 'yellow');
+
+    histAxis.selectAll('div').data(d3.range(12)).enter().append('div').each(function(d, i){
+        d3.select(this).style('background', 'green') .style('position', 'fixed').style('top', window.innerHeight/2+20 + 'px')
+            .style('left', window.innerWidth/2-12*histBallRadius +(i+1)*2*histBallRadius +'px')
+            .style('font-size',  '18px')
+            .style('top',  window.innerHeight/2+50+'px')
+            .style('color',  'white')
+            .style('width',  '20px')
+            .style('height', 3*histBallRadius+ 'px')
+            .html(d)
+    })
+        ;
+}
+function ballsTransitionMiddleTop(scrollTop, scrollDown) {
+console.log('___-> ballsTransitionMiddleTop');
+    goalsDiv.selectAll(".ball")
+        .each(function (d, i) {
+
+            var top = parseInt(d3.select(this).style('top').replace('px', ''));
+            var position = d3.select(this).style('position');
+
+            var totalTime = (d.matchNumber ) * 90 + parseInt(d.timing);
+            var minutes = totalTime % 60;
+
+            var minutesString = minutes.toString() + ' m';
+            var hoursString = Math.floor((totalTime ) / 60).toString() + ' h ';
+
+            var msg = 'EMPTY?';
+            //    GO TOP
+            if (d.scaledY < scrollTop + marginTop) {
+                if (!d3.select(this).classed('timeline-top')&& !d3.select(this).classed('hist')) {
+                    goalsInBasket += 1;
+                    d3.select(this).classed('timeline-top', true);
+                    updateGoalsContainer(hoursString, minutesString, goalsInBasket);
                 }
-                var minutesString = (parseInt(totalTime + d.timing - 60 * sixtyMinutes) % 60).toString() + ' m';
-                var hoursString = Math.floor((totalTime - 60 * sixtyMinutes) / 60).toString() + ' h ';
-                var totalTimeStr = hoursString + minutesString;
-                var msg = '';
-                if (d.scaledY < scrollTop + marginTop) {
-                    if (position == 'absolute') {
-                        goalsInBasket += 1;
-                        msg = generateMsg(totalTimeStr, goalsInBasket);
-                        goalsContainer.html(msg)
-                    }
-
-                    d3.select(this)
+                d3.select(this)
+                        .classed('hist', false)
                         .style('position', 'fixed')
                         .style('top', marginTop + 'px')
-                        .transition().delay(0).duration(300)
-                        .style('left', d.xPosWhenFixedToTop + 'px')
-                    ;
-
-                } else if (position == 'fixed' && d.scaledY > top + marginTop) {
-                    goalsInBasket -= 1;
-                    msg = generateMsg(totalTimeStr, goalsInBasket);
-                    goalsContainer.html(msg);
-
-                    d3.select(this)
-                        .style('position', 'absolute')
-                        .style('top', d.scaledY + 'px')
                         .transition().delay(0).duration(500)
-                        .style('left', d.xPosStarting + 'px')
+                         .style('left', d.xPosWhenFixedToTop + 'px');
+
+            }
+                //   GO MIDDLE
+            else if (d.scaledY > top + marginTop) {
+                if (d3.select(this).classed('timeline-top')){
+                    goalsInBasket -= 1;
+                    d3.select(this).classed('timeline-top', false);
+                    updateGoalsContainer(hoursString, minutesString, goalsInBasket);
                 }
-            })
-        ;
-    }
+
+                d3.select(this)
+                    .style('position', 'absolute')
+                    .style('top', d.scaledY + 'px')
+                    .transition().delay(0).duration(500)
+                    .style('left', d.xPosStarting + 'px')
+            }
+
+        })
+    ;
+}
+function updateGoalsContainer(hoursString, minutesString, goalsInBasket){
+    var totalTimeStr = hoursString + minutesString;
+    msg = generateMsg(totalTimeStr, goalsInBasket);
+    goalsContainer.html(msg);}
+function moveBallsTop() {
+    console.log('___-> moveBallstop');
+    goalsDiv.selectAll(".ball")
+        .each(function (d, i) {
+            d3.select(this)
+                .classed('timeline-top', true)
+                .transition().delay(1).duration(500)
+                .style('width', '15px')
+                .style('height', '15px')
+                .style('top', marginTop + 'px')
+                .style('left', d.xPosWhenFixedToTop + 'px')
+
+            ;
+        });
 }
 
-var matchAverages = d3.select('body')
-    .append('div')
-    .style('height', '800px')
-    .style('background-color', 'yellow')
-    .html('<h1>MATCH AVERAGES</h1>')
-    .classed('match-averages', true);
+// var matchAverages = d3.select('body')
+//     .append('div')
+//     .style('height', '800px')
+//     .style('background-color', 'yellow')
+//     .html('<h1>MATCH AVERAGES</h1>')
+//     .classed('match-averages', true);
 
 window.onload = function () {
     setTimeout(function () {
@@ -311,3 +476,4 @@ window.onload = function () {
         drawBalls();
     }, 100); //100ms for example
 }
+

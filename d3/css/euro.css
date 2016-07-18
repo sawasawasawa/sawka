@@ -15,9 +15,12 @@ font-family: 'Slabo 27px', serif;
 body {margin-top:16;
     margin-left:0;
     margin-right:0;
-    background-color: rgba(69, 255, 69, 0.29);
+    /*background-color: rgba(69, 255, 69, 0.29);*/
 }
-
+g {
+    stroke-width: 3px;
+    color: black;
+}
 
 .d3-tip {
     line-height: 1;
@@ -96,6 +99,7 @@ circle {
     z-index:999;
 
 }
+
 
 .Islandia {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg);

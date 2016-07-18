@@ -1,10 +1,275 @@
-data = [{'away': 'Francja', 'yellowCards': [{'timing': '25', 'player': '(Faul) Rami A.', 'team': 'Francja'}, {'timing': '83', 'player': '(Faul) Koscielny L.', 'team': 'Francja'}], 'home': 'Szwajcaria', 'hour': ' 21:00', 'goals': [], 'date': '19.06.2016', 'redCards': [], 'matchId': 'Szwajcaria_Francja_19.06.2016_21:00'}, {'away': 'Albania', 'yellowCards': [{'timing': '55', 'player': '(Faul) Kukeli B.', 'team': 'Albania'}, {'timing': '81', 'player': '(Podcięcie) Abrashi A.', 'team': 'Albania'}, {'timing': '88', 'player': 'Kante N. (Faul)', 'team': 'Francja'}], 'home': 'Francja', 'hour': ' 21:00', 'goals': [{'timing': '90', 'player': 'Griezmann A. (Rami A.)', 'assist': '', 'penalty': '', 'team': 'Francja'}, {'timing': '90+6', 'player': 'Payet D. (Gignac A.)', 'assist': '', 'penalty': '', 'team': 'Francja'}], 'date': '15.06.2016', 'redCards': [], 'matchId': 'Francja_Albania_15.06.2016_21:00'}, {'away': 'Rumunia', 'yellowCards': [{'timing': '32', 'player': '(Nadmierna ostrość) Chiriches V.', 'team': 'Rumunia'}, {'timing': '45', 'player': '(Nadmierna ostrość) Rat R.', 'team': 'Rumunia'}, {'timing': '69', 'player': 'Giroud O. (Nadmierna ostrość)', 'team': 'Francja'}, {'timing': '78', 'player': '(Utrudnianie gry) Popa A.', 'team': 'Rumunia'}], 'home': 'Francja', 'hour': ' 21:00', 'goals': [{'timing': '57', 'player': 'Giroud O. (Payet D.)', 'assist': '', 'penalty': '', 'team': 'Francja'}, {'timing': '65', 'player': 'Stancu B.', 'assist': '', 'penalty': 'PEANLTY', 'team': 'Rumunia'}, {'timing': '89', 'player': 'Payet D. (Kante N.)', 'assist': '', 'penalty': '', 'team': 'Francja'}], 'date': '10.06.2016', 'redCards': [], 'matchId': 'Francja_Rumunia_10.06.2016_21:00'}, {'away': 'Szwajcaria', 'yellowCards': [{'timing': '22', 'player': 'Prepelita A. (Podcięcie)', 'team': 'Rumunia'}, {'timing': '24', 'player': 'Chipciu A. (Faul)', 'team': 'Rumunia'}, {'timing': '37', 'player': 'Keseru C. (Przytrzymywanie)', 'team': 'Rumunia'}, {'timing': '50', 'player': '(Podcięcie) Xhaka G.', 'team': 'Szwajcaria'}, {'timing': '76', 'player': 'Grigore D. (Podcięcie)', 'team': 'Rumunia'}, {'timing': '90+4', 'player': '(Podcięcie) Embolo B.', 'team': 'Szwajcaria'}], 'home': 'Rumunia', 'hour': ' 18:00', 'goals': [{'timing': '18', 'player': 'Stancu B. ', 'assist': '', 'penalty': 'PEANLTY', 'team': 'Rumunia'}, {'timing': '57', 'player': 'Mehmedi A.', 'assist': '', 'penalty': '', 'team': 'Szwajcaria'}], 'date': '15.06.2016', 'redCards': [], 'matchId': 'Rumunia_Szwajcaria_15.06.2016_18:00'}, {'away': 'Szwajcaria', 'yellowCards': [{'timing': '14', 'player': '(Podcięcie) Schar F.', 'team': 'Szwajcaria'}, {'timing': '23', 'player': 'Cana L. (Podcięcie)', 'team': 'Albania'}, {'timing': '63', 'player': 'Kace E. (Przytrzymywanie)', 'team': 'Albania'}, {'timing': '66', 'player': '(Faul) Behrami V.', 'team': 'Szwajcaria'}, {'timing': '89', 'player': 'Kukeli B. (Nadmierna ostrość)', 'team': 'Albania'}, {'timing': '90+2', 'player': 'Mavraj M. (Nadmierna ostrość)', 'team': 'Albania'}], 'home': 'Albania', 'hour': ' 15:00', 'goals': [{'timing': '5', 'player': 'Schar F.', 'assist': 'Shaqiri X', 'penalty': '', 'team': 'Szwajcaria'}], 'date': '11.06.2016', 'redCards': [{'timing': '36', 'player': 'Cana L. (Zagranie ręką)', 'team': 'Albania'}], 'matchId': 'Albania_Szwajcaria_11.06.2016_15:00'}, {'away': 'Albania', 'yellowCards': [{'timing': '54', 'player': 'Matel A. (Przytrzymywanie)', 'team': 'Rumunia'}, {'timing': '6', 'player': '(Nadmierna ostrość) Basha M.', 'team': 'Albania'}, {'timing': '85', 'player': 'Sapunaru C. (Niesportowe zachowanie)', 'team': 'Rumunia'}, {'timing': '85', 'player': '(Niesportowe zachowanie) Memushaj L.', 'team': 'Albania'}, {'timing': '90+3', 'player': 'Torje G. (Niesportowe zachowanie)', 'team': 'Rumunia'}, {'timing': '90+4', 'player': '(Opóźnianie gry) Hysaj E.', 'team': 'Albania'}], 'home': 'Rumunia', 'hour': ' 21:00', 'goals': [{'timing': '43', 'player': 'Sadiku A.', 'assist': 'Memushaj L', 'penalty': '', 'team': 'Albania'}], 'date': '19.06.2016', 'redCards': [], 'matchId': 'Rumunia_Albania_19.06.2016_21:00'}, {'away': 'Walia', 'yellowCards': [{'timing': '16', 'player': '(Uderzenie łokciem) Vokes S.', 'team': 'Walia'}, {'timing': '64', 'player': 'Mamaev P. (Niesportowe zachowanie)', 'team': 'Rosja'}], 'home': 'Rosja', 'hour': ' 21:00', 'goals': [{'timing': '11', 'player': 'Ramsey A.', 'assist': 'Allen J', 'penalty': '', 'team': 'Walia'}, {'timing': '20', 'player': 'Taylor N.', 'assist': '', 'penalty': '', 'team': 'Walia'}, {'timing': '67', 'player': 'Bale G.', 'assist': 'Ramsey A', 'penalty': '', 'team': 'Walia'}], 'date': '20.06.2016', 'redCards': [], 'matchId': 'Rosja_Walia_20.06.2016_21:00'}, {'away': 'Walia', 'yellowCards': [{'timing': '61', 'player': '(Nadmierna ostrość) Davies B.', 'team': 'Walia'}], 'home': 'Anglia', 'hour': ' 15:00', 'goals': [{'timing': '42', 'player': 'Bale G.', 'assist': '', 'penalty': '', 'team': 'Walia'}, {'timing': '56', 'player': 'Vardy J.', 'assist': '', 'penalty': '', 'team': 'Anglia'}, {'timing': '90+2', 'player': 'Sturridge D. (Alli D.)', 'assist': '', 'penalty': '', 'team': 'Anglia'}], 'date': '16.06.2016', 'redCards': [], 'matchId': 'Anglia_Walia_16.06.2016_15:00'}, {'away': 'Słowacja', 'yellowCards': [{'timing': '31', 'player': '(Podcięcie) Hrosovsky P.', 'team': 'Słowacja'}, {'timing': '78', 'player': '(Nadmierna ostrość) Mak R.', 'team': 'Słowacja'}, {'timing': '80', 'player': '(Podcięcie) Weiss V.', 'team': 'Słowacja'}, {'timing': '83', 'player': '(Podcięcie) Kucka J.', 'team': 'Słowacja'}, {'timing': '90+2', 'player': '(Nadmierna ostrość) Skrtel M.', 'team': 'Słowacja'}], 'home': 'Walia', 'hour': ' 18:00', 'goals': [{'timing': '10', 'player': 'Bale G.', 'assist': '', 'penalty': '', 'team': 'Walia'}, {'timing': '61', 'player': 'Duda O.', 'assist': 'Mak R', 'penalty': '', 'team': 'Słowacja'}, {'timing': '81', 'player': 'Robson-Kanu H. (Ramsey A.)', 'assist': '', 'penalty': '', 'team': 'Walia'}], 'date': '11.06.2016', 'redCards': [], 'matchId': 'Walia_Słowacja_11.06.2016_18:00'}
-    , {'away': 'Anglia', 'yellowCards': [{'timing': '24', 'player': 'Pecovsky V. (Podcięcie)', 'team': 'Słowacja'}, {'timing': '52', 'player': '(Przytrzymywanie) Bertrand R.', 'team': 'Anglia'}], 'home': 'Słowacja', 'hour': ' 21:00', 'goals': [], 'date': '20.06.2016', 'redCards': [], 'matchId': 'Słowacja_Anglia_20.06.2016_21:00'}, {'away': 'Rosja', 'yellowCards': [{'timing': '62', 'player': 'Cahill G. (Podcięcie)', 'team': 'Anglia'}, {'timing': '72', 'player': '(Utrudnianie gry) Schennikov G.', 'team': 'Rosja'}], 'home': 'Anglia', 'hour': ' 21:00', 'goals': [{'timing': '73', 'player': 'Dier E.', 'assist': '', 'penalty': '', 'team': 'Anglia'}, {'timing': '90+2', 'player': 'Berezutski V.', 'assist': 'Schennikov G', 'penalty': '', 'team': 'Rosja'}], 'date': '11.06.2016', 'redCards': [], 'matchId': 'Anglia_Rosja_11.06.2016_21:00'}, {'away': 'Słowacja', 'yellowCards': [{'timing': '46', 'player': '(Podcięcie) Durica J.', 'team': 'Słowacja'}], 'home': 'Rosja', 'hour': ' 15:00', 'goals': [{'timing': '32', 'player': 'Weiss V.', 'assist': 'Hamsik M', 'penalty': '', 'team': 'Słowacja'}, {'timing': '45', 'player': 'Hamsik M.', 'assist': 'Weiss V', 'penalty': '', 'team': 'Słowacja'}, {'timing': '80', 'player': 'Glushakov D. (Shatov O.)', 'assist': '', 'penalty': '', 'team': 'Rosja'}], 'date': '15.06.2016', 'redCards': [], 'matchId': 'Rosja_Słowacja_15.06.2016_15:00'}, {'away': 'Niemcy', 'yellowCards': [], 'home': 'Irlandia Północna', 'hour': ' 18:00', 'goals': [{'timing': '30', 'player': 'Gomez M.', 'assist': 'Muller T', 'penalty': '', 'team': 'Niemcy'}], 'date': '21.06.2016', 'redCards': [], 'matchId': 'Irlandia Północna_Niemcy_21.06.2016_18:00'}, {'away': 'Polska', 'yellowCards': [{'timing': '3', 'player': 'Khedira S. (Podcięcie)', 'team': 'Niemcy'}, {'timing': '34', 'player': 'Ozil M. (Przytrzymywanie)', 'team': 'Niemcy'}, {'timing': '45', 'player': '(Przytrzymywanie) Maczynski K.', 'team': 'Polska'}, {'timing': '55', 'player': '(Przytrzymywanie) Grosicki K.', 'team': 'Polska'},
-        {'timing': '67', 'player': 'Boateng J. (Nadmierna ostrość)', 'team': 'Niemcy'}, {
-            'timing': '90+3',
-            'player': '(Nadmierna ostrość) Peszko S.',
-            'team': 'Polska'
+var groups =  [{
+    'away': 'Francja',
+    'yellowCards': [{'timing': '25', 'player': '(Faul) Rami A.', 'team': 'Francja'}, {
+        'timing': '83',
+        'player': '(Faul) Koscielny L.',
+        'team': 'Francja'
+    }],
+    'home': 'Szwajcaria',
+    'hour': ' 21:00',
+    'goals': [],
+    'date': '19.06.2016',
+    'redCards': [],
+    'matchId': 'Szwajcaria_Francja_19.06.2016_21:00'
+}, {
+    'away': 'Albania',
+    'yellowCards': [{'timing': '55', 'player': '(Faul) Kukeli B.', 'team': 'Albania'}, {
+        'timing': '81',
+        'player': '(Podcięcie) Abrashi A.',
+        'team': 'Albania'
+    }, {'timing': '88', 'player': 'Kante N. (Faul)', 'team': 'Francja'}],
+    'home': 'Francja',
+    'hour': ' 21:00',
+    'goals': [{
+        'timing': '90',
+        'player': 'Griezmann A. (Rami A.)',
+        'assist': '',
+        'penalty': '',
+        'team': 'Francja'
+    }, {'timing': '90+6', 'player': 'Payet D. (Gignac A.)', 'assist': '', 'penalty': '', 'team': 'Francja'}],
+    'date': '15.06.2016',
+    'redCards': [],
+    'matchId': 'Francja_Albania_15.06.2016_21:00'
+}, {
+    'away': 'Rumunia',
+    'yellowCards': [{'timing': '32', 'player': '(Nadmierna ostrość) Chiriches V.', 'team': 'Rumunia'}, {
+        'timing': '45',
+        'player': '(Nadmierna ostrość) Rat R.',
+        'team': 'Rumunia'
+    }, {'timing': '69', 'player': 'Giroud O. (Nadmierna ostrość)', 'team': 'Francja'}, {
+        'timing': '78',
+        'player': '(Utrudnianie gry) Popa A.',
+        'team': 'Rumunia'
+    }],
+    'home': 'Francja',
+    'hour': ' 21:00',
+    'goals': [{
+        'timing': '57',
+        'player': 'Giroud O. (Payet D.)',
+        'assist': '',
+        'penalty': '',
+        'team': 'Francja'
+    }, {'timing': '65', 'player': 'Stancu B.', 'assist': '', 'penalty': 'PEANLTY', 'team': 'Rumunia'}, {
+        'timing': '89',
+        'player': 'Payet D. (Kante N.)',
+        'assist': '',
+        'penalty': '',
+        'team': 'Francja'
+    }],
+    'date': '10.06.2016',
+    'redCards': [],
+    'matchId': 'Francja_Rumunia_10.06.2016_21:00'
+}, {
+    'away': 'Szwajcaria',
+    'yellowCards': [{'timing': '22', 'player': 'Prepelita A. (Podcięcie)', 'team': 'Rumunia'}, {
+        'timing': '24',
+        'player': 'Chipciu A. (Faul)',
+        'team': 'Rumunia'
+    }, {'timing': '37', 'player': 'Keseru C. (Przytrzymywanie)', 'team': 'Rumunia'}, {
+        'timing': '50',
+        'player': '(Podcięcie) Xhaka G.',
+        'team': 'Szwajcaria'
+    }, {'timing': '76', 'player': 'Grigore D. (Podcięcie)', 'team': 'Rumunia'}, {
+        'timing': '90+4',
+        'player': '(Podcięcie) Embolo B.',
+        'team': 'Szwajcaria'
+    }],
+    'home': 'Rumunia',
+    'hour': ' 18:00',
+    'goals': [{
+        'timing': '18',
+        'player': 'Stancu B. ',
+        'assist': '',
+        'penalty': 'PEANLTY',
+        'team': 'Rumunia'
+    }, {'timing': '57', 'player': 'Mehmedi A.', 'assist': '', 'penalty': '', 'team': 'Szwajcaria'}],
+    'date': '15.06.2016',
+    'redCards': [],
+    'matchId': 'Rumunia_Szwajcaria_15.06.2016_18:00'
+}, {
+    'away': 'Szwajcaria',
+    'yellowCards': [{'timing': '14', 'player': '(Podcięcie) Schar F.', 'team': 'Szwajcaria'}, {
+        'timing': '23',
+        'player': 'Cana L. (Podcięcie)',
+        'team': 'Albania'
+    }, {'timing': '63', 'player': 'Kace E. (Przytrzymywanie)', 'team': 'Albania'}, {
+        'timing': '66',
+        'player': '(Faul) Behrami V.',
+        'team': 'Szwajcaria'
+    }, {'timing': '89', 'player': 'Kukeli B. (Nadmierna ostrość)', 'team': 'Albania'}, {
+        'timing': '90+2',
+        'player': 'Mavraj M. (Nadmierna ostrość)',
+        'team': 'Albania'
+    }],
+    'home': 'Albania',
+    'hour': ' 15:00',
+    'goals': [{'timing': '5', 'player': 'Schar F.', 'assist': 'Shaqiri X', 'penalty': '', 'team': 'Szwajcaria'}],
+    'date': '11.06.2016',
+    'redCards': [{'timing': '36', 'player': 'Cana L. (Zagranie ręką)', 'team': 'Albania'}],
+    'matchId': 'Albania_Szwajcaria_11.06.2016_15:00'
+}, {
+    'away': 'Albania',
+    'yellowCards': [{'timing': '54', 'player': 'Matel A. (Przytrzymywanie)', 'team': 'Rumunia'}, {
+        'timing': '6',
+        'player': '(Nadmierna ostrość) Basha M.',
+        'team': 'Albania'
+    }, {'timing': '85', 'player': 'Sapunaru C. (Niesportowe zachowanie)', 'team': 'Rumunia'}, {
+        'timing': '85',
+        'player': '(Niesportowe zachowanie) Memushaj L.',
+        'team': 'Albania'
+    }, {'timing': '90+3', 'player': 'Torje G. (Niesportowe zachowanie)', 'team': 'Rumunia'}, {
+        'timing': '90+4',
+        'player': '(Opóźnianie gry) Hysaj E.',
+        'team': 'Albania'
+    }],
+    'home': 'Rumunia',
+    'hour': ' 21:00',
+    'goals': [{'timing': '43', 'player': 'Sadiku A.', 'assist': 'Memushaj L', 'penalty': '', 'team': 'Albania'}],
+    'date': '19.06.2016',
+    'redCards': [],
+    'matchId': 'Rumunia_Albania_19.06.2016_21:00'
+}, {
+    'away': 'Walia',
+    'yellowCards': [{'timing': '16', 'player': '(Uderzenie łokciem) Vokes S.', 'team': 'Walia'}, {
+        'timing': '64',
+        'player': 'Mamaev P. (Niesportowe zachowanie)',
+        'team': 'Rosja'
+    }],
+    'home': 'Rosja',
+    'hour': ' 21:00',
+    'goals': [{
+        'timing': '11',
+        'player': 'Ramsey A.',
+        'assist': 'Allen J',
+        'penalty': '',
+        'team': 'Walia'
+    }, {'timing': '20', 'player': 'Taylor N.', 'assist': '', 'penalty': '', 'team': 'Walia'}, {
+        'timing': '67',
+        'player': 'Bale G.',
+        'assist': 'Ramsey A',
+        'penalty': '',
+        'team': 'Walia'
+    }],
+    'date': '20.06.2016',
+    'redCards': [],
+    'matchId': 'Rosja_Walia_20.06.2016_21:00'
+}, {
+    'away': 'Walia',
+    'yellowCards': [{'timing': '61', 'player': '(Nadmierna ostrość) Davies B.', 'team': 'Walia'}],
+    'home': 'Anglia',
+    'hour': ' 15:00',
+    'goals': [{'timing': '42', 'player': 'Bale G.', 'assist': '', 'penalty': '', 'team': 'Walia'}, {
+        'timing': '56',
+        'player': 'Vardy J.',
+        'assist': '',
+        'penalty': '',
+        'team': 'Anglia'
+    }, {'timing': '90+2', 'player': 'Sturridge D. (Alli D.)', 'assist': '', 'penalty': '', 'team': 'Anglia'}],
+    'date': '16.06.2016',
+    'redCards': [],
+    'matchId': 'Anglia_Walia_16.06.2016_15:00'
+}, {
+    'away': 'Słowacja',
+    'yellowCards': [{'timing': '31', 'player': '(Podcięcie) Hrosovsky P.', 'team': 'Słowacja'}, {
+        'timing': '78',
+        'player': '(Nadmierna ostrość) Mak R.',
+        'team': 'Słowacja'
+    }, {'timing': '80', 'player': '(Podcięcie) Weiss V.', 'team': 'Słowacja'}, {
+        'timing': '83',
+        'player': '(Podcięcie) Kucka J.',
+        'team': 'Słowacja'
+    }, {'timing': '90+2', 'player': '(Nadmierna ostrość) Skrtel M.', 'team': 'Słowacja'}],
+    'home': 'Walia',
+    'hour': ' 18:00',
+    'goals': [{'timing': '10', 'player': 'Bale G.', 'assist': '', 'penalty': '', 'team': 'Walia'}, {
+        'timing': '61',
+        'player': 'Duda O.',
+        'assist': 'Mak R',
+        'penalty': '',
+        'team': 'Słowacja'
+    }, {'timing': '81', 'player': 'Robson-Kanu H. (Ramsey A.)', 'assist': '', 'penalty': '', 'team': 'Walia'}],
+    'date': '11.06.2016',
+    'redCards': [],
+    'matchId': 'Walia_Słowacja_11.06.2016_18:00'
+}
+    , {
+        'away': 'Anglia',
+        'yellowCards': [{'timing': '24', 'player': 'Pecovsky V. (Podcięcie)', 'team': 'Słowacja'}, {
+            'timing': '52',
+            'player': '(Przytrzymywanie) Bertrand R.',
+            'team': 'Anglia'
         }],
+        'home': 'Słowacja',
+        'hour': ' 21:00',
+        'goals': [],
+        'date': '20.06.2016',
+        'redCards': [],
+        'matchId': 'Słowacja_Anglia_20.06.2016_21:00'
+    }, {
+        'away': 'Rosja',
+        'yellowCards': [{'timing': '62', 'player': 'Cahill G. (Podcięcie)', 'team': 'Anglia'}, {
+            'timing': '72',
+            'player': '(Utrudnianie gry) Schennikov G.',
+            'team': 'Rosja'
+        }],
+        'home': 'Anglia',
+        'hour': ' 21:00',
+        'goals': [{
+            'timing': '73',
+            'player': 'Dier E.',
+            'assist': '',
+            'penalty': '',
+            'team': 'Anglia'
+        }, {'timing': '90+2', 'player': 'Berezutski V.', 'assist': 'Schennikov G', 'penalty': '', 'team': 'Rosja'}],
+        'date': '11.06.2016',
+        'redCards': [],
+        'matchId': 'Anglia_Rosja_11.06.2016_21:00'
+    }, {
+        'away': 'Słowacja',
+        'yellowCards': [{'timing': '46', 'player': '(Podcięcie) Durica J.', 'team': 'Słowacja'}],
+        'home': 'Rosja',
+        'hour': ' 15:00',
+        'goals': [{
+            'timing': '32',
+            'player': 'Weiss V.',
+            'assist': 'Hamsik M',
+            'penalty': '',
+            'team': 'Słowacja'
+        }, {
+            'timing': '45',
+            'player': 'Hamsik M.',
+            'assist': 'Weiss V',
+            'penalty': '',
+            'team': 'Słowacja'
+        }, {'timing': '80', 'player': 'Glushakov D. (Shatov O.)', 'assist': '', 'penalty': '', 'team': 'Rosja'}],
+        'date': '15.06.2016',
+        'redCards': [],
+        'matchId': 'Rosja_Słowacja_15.06.2016_15:00'
+    }, {
+        'away': 'Niemcy',
+        'yellowCards': [],
+        'home': 'Irlandia Północna',
+        'hour': ' 18:00',
+        'goals': [{'timing': '30', 'player': 'Gomez M.', 'assist': 'Muller T', 'penalty': '', 'team': 'Niemcy'}],
+        'date': '21.06.2016',
+        'redCards': [],
+        'matchId': 'Irlandia Północna_Niemcy_21.06.2016_18:00'
+    }, {
+        'away': 'Polska',
+        'yellowCards': [{'timing': '3', 'player': 'Khedira S. (Podcięcie)', 'team': 'Niemcy'}, {
+            'timing': '34',
+            'player': 'Ozil M. (Przytrzymywanie)',
+            'team': 'Niemcy'
+        }, {'timing': '45', 'player': '(Przytrzymywanie) Maczynski K.', 'team': 'Polska'}, {
+            'timing': '55',
+            'player': '(Przytrzymywanie) Grosicki K.',
+            'team': 'Polska'
+        },
+            {'timing': '67', 'player': 'Boateng J. (Nadmierna ostrość)', 'team': 'Niemcy'}, {
+                'timing': '90+3',
+                'player': '(Nadmierna ostrość) Peszko S.',
+                'team': 'Polska'
+            }],
         'home': 'Niemcy',
         'hour': ' 21:00',
         'goals': [],
@@ -531,3 +796,486 @@ data = [{'away': 'Francja', 'yellowCards': [{'timing': '25', 'player': '(Faul) R
         'matchId': 'Portugalia_Austria_18.06.2016_21:00'
     }]
 ;
+
+var finals = [
+    {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': ' Portugalia_Francja_10.07.2016_21:00',
+        'yellowCards': [{'team': 'Francja', 'timing': '107', 'player': '(Zagranie ręką) Koscielny L.'}, {
+            'team': 'Francja',
+            'timing': '115',
+            'player': '(Przytrzymywanie) Pogba P.'
+        }, {'team': ' Portugalia', 'timing': '119', 'player': 'Fonte J. (Niesportowe zachowanie)'}, {
+            'team': ' Portugalia',
+            'timing': '120+3',
+            'player': 'Patricio R. (Opóźnianie gry)'
+        }, {'team': ' Portugalia', 'timing': '34', 'player': 'Cedric A. (Nadmierna ostrość)'}, {
+            'team': ' Portugalia',
+            'timing': '62',
+            'player': 'Mario J. (Podcięcie)'
+        }, {'team': 'Francja', 'timing': '80', 'player': '(Nadmierna ostrość) Umtiti S.'}, {
+            'team': ' Portugalia',
+            'timing': '95',
+            'player': 'Guerreiro R. (Przytrzymywanie)'
+        }, {'team': 'Francja', 'timing': '97', 'player': '(Nadmierna ostrość) Matuidi B.'}, {
+            'team': ' Portugalia',
+            'timing': '98',
+            'player': 'Carvalho W. (Podcięcie)'
+        }],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Francja',
+        'goals': [{
+            'player': 'Eder (Moutinho J.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Portugalia',
+            'timing': '109',
+            'assist': ''
+        }],
+        'home': ' Portugalia',
+        'date': '10.07.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': 'Niemcy_Francja _07.07.2016_21:00',
+        'yellowCards': [{
+            'team': 'Niemcy',
+            'timing': '36',
+            'player': 'Can E. (Niesportowe zachowanie)'
+        }, {'team': 'Francja ', 'timing': '43', 'player': '(Podcięcie) Evra P.'}, {
+            'team': 'Niemcy',
+            'timing': '45+1',
+            'player': 'Schweinsteiger B. (Zagranie ręką)'
+        }, {'team': 'Niemcy', 'timing': '45+1', 'player': 'Ozil M. (Niesportowe zachowanie)'}, {
+            'team': 'Niemcy',
+            'timing': '50',
+            'player': 'Draxler J. (Podcięcie)'
+        }, {'team': 'Francja ', 'timing': '75', 'player': '(Podcięcie) Kante N.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Francja ',
+        'goals': [{
+            'player': 'Griezmann A.',
+            'penalty': 'PEANLTY',
+            'video': '',
+            'team': 'Francja ',
+            'timing': '45+2',
+            'assist': ''
+        }, {'player': 'Griezmann A.', 'penalty': '', 'video': '', 'team': 'Francja ', 'timing': '72', 'assist': ''}],
+        'home': 'Niemcy',
+        'date': '07.07.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': ' Portugalia_Walia_06.07.2016_21:00',
+        'yellowCards': [{'team': 'Walia', 'timing': '62', 'player': '(Podcięcie) Chester J.'}, {
+            'team': ' Portugalia',
+            'timing': '71',
+            'player': 'Alves B. (Niesportowe zachowanie)'
+        }, {'team': ' Portugalia', 'timing': '72', 'player': 'Ronaldo C. (Podcięcie)'}, {
+            'team': 'Walia',
+            'timing': '8',
+            'player': '(Podcięcie) Allen J.'
+        }, {'team': 'Walia', 'timing': '88', 'player': '(Nadmierna ostrość) Bale G.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Walia',
+        'goals': [{
+            'player': 'Ronaldo C. (Guerreiro R.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Portugalia',
+            'timing': '50',
+            'assist': ''
+        }, {
+            'player': 'Nani (Ronaldo C.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Portugalia',
+            'timing': '53',
+            'assist': ''
+        }],
+        'home': ' Portugalia',
+        'date': '06.07.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': ' Francja_Islandia_03.07.2016_21:00',
+        'yellowCards': [{'team': 'Islandia', 'timing': '58', 'player': '(Podcięcie) Bjarnason B.'}, {
+            'team': ' Francja',
+            'timing': '75',
+            'player': 'Umtiti S. (Podcięcie)'
+        }],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Islandia',
+        'goals': [{
+            'player': 'Giroud O. (Matuidi B.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Francja',
+            'timing': '12',
+            'assist': ''
+        }, {
+            'player': 'Pogba P. (Griezmann A.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Francja',
+            'timing': '20',
+            'assist': ''
+        }, {
+            'player': 'Payet D. (Griezmann A.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Francja',
+            'timing': '43',
+            'assist': ''
+        }, {
+            'player': 'Griezmann A. (Giroud O.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Francja',
+            'timing': '45',
+            'assist': ''
+        }, {
+            'player': 'Sigthorsson K.',
+            'penalty': '',
+            'video': '',
+            'team': 'Islandia',
+            'timing': '56',
+            'assist': 'Sigurdsson G'
+        }, {
+            'player': 'Giroud O. (Payet D.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Francja',
+            'timing': '59',
+            'assist': ''
+        }, {
+            'player': 'Bjarnason B.',
+            'penalty': '',
+            'video': '',
+            'team': 'Islandia',
+            'timing': '84',
+            'assist': 'Skulason A'
+        }],
+        'home': ' Francja',
+        'date': '03.07.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': ' Niemcy_Włochy_02.07.2016_21:00',
+        'yellowCards': [{'team': 'Włochy', 'timing': '103', 'player': '(Symulowanie) Giaccherini E.'}, {
+            'team': ' Niemcy',
+            'timing': '112',
+            'player': 'Schweinsteiger B. (Nadmierna ostrość)'
+        }, {'team': 'Włochy', 'timing': '56', 'player': '(Niesportowe zachowanie) Sturaro S.'}, {
+            'team': 'Włochy',
+            'timing': '57',
+            'player': '(Nadmierna ostrość) De Sciglio M.'
+        }, {'team': 'Włochy', 'timing': '59', 'player': '(Nadmierna ostrość) Parolo M.'}, {
+            'team': ' Niemcy',
+            'timing': '90',
+            'player': 'Hummels M. (Podcięcie)'
+        }, {'team': 'Włochy', 'timing': '91', 'player': '(Nadmierna ostrość) Pelle G.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Włochy',
+        'goals': [{
+            'player': 'Ozil M. (Hector J.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Niemcy',
+            'timing': '65',
+            'assist': ''
+        }, {'player': 'Bonucci L.', 'penalty': 'PEANLTY', 'video': '', 'team': 'Włochy', 'timing': '78', 'assist': ''}],
+        'home': ' Niemcy',
+        'date': '02.07.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': ' Walia_Belgia_01.07.2016_21:00',
+        'yellowCards': [{'team': ' Walia', 'timing': '16', 'player': 'Chester J. (Podcięcie)'}, {
+            'team': ' Walia',
+            'timing': '24',
+            'player': 'Gunter C. (Przytrzymywanie)'
+        }, {'team': ' Walia', 'timing': '5', 'player': 'Davies B. (Nadmierna ostrość)'}, {
+            'team': 'Belgia',
+            'timing': '59',
+            'player': '(Nadmierna ostrość) Fellaini M.'
+        }, {'team': ' Walia', 'timing': '75', 'player': 'Ramsey A. (Zagranie ręką)'}, {
+            'team': 'Belgia',
+            'timing': '85',
+            'player': '(Podcięcie) Alderweireld T.'
+        }],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Belgia',
+        'goals': [{
+            'player': 'Nainggolan R.',
+            'penalty': '',
+            'video': '',
+            'team': 'Belgia',
+            'timing': '13',
+            'assist': 'Hazard E'
+        }, {
+            'player': 'Williams A. (Ramsey A.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Walia',
+            'timing': '31',
+            'assist': ''
+        }, {
+            'player': 'Robson-Kanu H. (Ramsey A.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Walia',
+            'timing': '55',
+            'assist': ''
+        }, {
+            'player': 'Vokes S. (Gunter C.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Walia',
+            'timing': '86',
+            'assist': ''
+        }],
+        'home': ' Walia',
+        'date': '01.07.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': 'Polska_Portugalia _30.06.2016_21:00',
+        'yellowCards': [{'team': 'Polska', 'timing': '42', 'player': 'Jedrzejczyk A. (Przytrzymywanie)'}, {
+            'team': 'Polska',
+            'timing': '66',
+            'player': 'Glik K. (Nadmierna ostrość)'
+        }, {'team': 'Portugalia ', 'timing': '70', 'player': '(Faul) Silva A.'}, {
+            'team': 'Polska',
+            'timing': '89',
+            'player': 'Kapustka B. (Uderzenie łokciem)'
+        }, {'team': 'Portugalia ', 'timing': '90+2', 'player': '(Przytrzymywanie) Carvalho W.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Portugalia ',
+        'goals': [{
+            'player': 'Lewandowski R. (Grosicki K.)',
+            'penalty': '',
+            'video': '',
+            'team': 'Polska',
+            'timing': '2',
+            'assist': ''
+        }, {
+            'player': 'Sanches R.',
+            'penalty': '',
+            'video': '',
+            'team': 'Portugalia ',
+            'timing': '33',
+            'assist': 'Nan'
+        }],
+        'home': 'Polska',
+        'date': '30.06.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': 'Anglia_Islandia _27.06.2016_21:00',
+        'yellowCards': [{'team': 'Islandia ', 'timing': '38', 'player': '(Podcięcie) Sigurdsson G.'}, {
+            'team': 'Anglia',
+            'timing': '47',
+            'player': 'Sturridge D. (Nadmierna ostrość)'
+        }, {'team': 'Islandia ', 'timing': '65', 'player': '(Podcięcie) Gunnarsson A.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Islandia ',
+        'goals': [{
+            'player': 'Sigthorsson K.',
+            'penalty': '',
+            'video': '',
+            'team': 'Islandia ',
+            'timing': '18',
+            'assist': 'Bodvarsson J'
+        }, {
+            'player': 'Rooney W. ',
+            'penalty': 'PEANLTY',
+            'video': '',
+            'team': 'Anglia',
+            'timing': '4',
+            'assist': ''
+        }, {
+            'player': 'Sigurdsson R.',
+            'penalty': '',
+            'video': '',
+            'team': 'Islandia ',
+            'timing': '6',
+            'assist': 'Arnason K'
+        }],
+        'home': 'Anglia',
+        'date': '27.06.2016',
+        'finals': true
+    }, {
+        'hour': ' 18:00',
+        'redCards': [],
+        'matchId': ' Włochy_Hiszpania_27.06.2016_18:00',
+        'yellowCards': [{
+            'team': ' Włochy',
+            'timing': '24',
+            'player': 'De Sciglio M. (Przytrzymywanie)'
+        }, {'team': 'Hiszpania', 'timing': '41', 'player': '(Nadmierna ostrość) Nolito D.'}, {
+            'team': ' Włochy',
+            'timing': '54',
+            'player': 'Pelle G. (Uderzenie łokciem)'
+        }, {'team': ' Włochy', 'timing': '89', 'player': 'Motta T. (Nadmierna ostrość)'}, {
+            'team': 'Hiszpania',
+            'timing': '89',
+            'player': '(Niesportowe zachowanie) Busquets S.'
+        }, {'team': 'Hiszpania', 'timing': '90+4', 'player': '(Podcięcie) Silva D.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Hiszpania',
+        'goals': [{
+            'player': 'Chiellini G. (Giaccherini E.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Włochy',
+            'timing': '33',
+            'assist': ''
+        }, {
+            'player': 'Pelle G. (Darmian M.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Włochy',
+            'timing': '90+1',
+            'assist': ''
+        }],
+        'home': ' Włochy',
+        'date': '27.06.2016',
+        'finals': true
+    }, {
+        'hour': ' 21:00',
+        'redCards': [],
+        'matchId': 'Węgry_Belgia _26.06.2016_21:00',
+        'yellowCards': [{'team': 'Węgry', 'timing': '34', 'player': 'Kadar T. (Podcięcie)'}, {
+            'team': 'Węgry',
+            'timing': '47',
+            'player': 'Lang A. (Nadmierna ostrość)'
+        }, {'team': 'Węgry', 'timing': '61', 'player': 'Elek A. (Podcięcie)'}, {
+            'team': 'Belgia ',
+            'timing': '67',
+            'player': '(Podcięcie) Vermaelen T.'
+        }, {'team': 'Belgia ', 'timing': '89', 'player': '(Niesportowe zachowanie) Batshuayi M.'}, {
+            'team': 'Węgry',
+            'timing': '90+2',
+            'player': 'Szalai A. (Niesportowe zachowanie)'
+        }, {'team': 'Belgia ', 'timing': '90+2', 'player': '(Uderzenie łokciem) Fellaini M.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Belgia ',
+        'goals': [{
+            'player': 'Alderweireld T.',
+            'penalty': '',
+            'video': '',
+            'team': 'Belgia ',
+            'timing': '10',
+            'assist': 'de Bruyne K'
+        }, {
+            'player': 'Batshuayi M.',
+            'penalty': '',
+            'video': '',
+            'team': 'Belgia ',
+            'timing': '78',
+            'assist': 'Hazard E'
+        }, {
+            'player': 'Hazard E.',
+            'penalty': '',
+            'video': '',
+            'team': 'Belgia ',
+            'timing': '80',
+            'assist': ''
+        }, {
+            'player': 'Carrasco Y.',
+            'penalty': '',
+            'video': '',
+            'team': 'Belgia ',
+            'timing': '90+1',
+            'assist': 'Nainggolan R'
+        }],
+        'home': 'Węgry',
+        'date': '26.06.2016',
+        'finals': true
+    }, {
+        'hour': ' 18:00',
+        'redCards': [],
+        'matchId': ' Niemcy_Słowacja_26.06.2016_18:00',
+        'yellowCards': [{'team': 'Słowacja', 'timing': '13', 'player': '(Nadmierna ostrość) Skrtel M.'}, {
+            'team': ' Niemcy',
+            'timing': '46',
+            'player': 'Kimmich J. (Utrudnianie gry)'
+        }, {'team': ' Niemcy', 'timing': '67', 'player': 'Hummels M. (Podcięcie)'}, {
+            'team': 'Słowacja',
+            'timing': '90+1',
+            'player': '(Podcięcie) Kucka J.'
+        }],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Słowacja',
+        'goals': [{
+            'player': 'Gomez M. (Draxler J.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Niemcy',
+            'timing': '43',
+            'assist': ''
+        }, {
+            'player': 'Draxler J.',
+            'penalty': '',
+            'video': '',
+            'team': ' Niemcy',
+            'timing': '63',
+            'assist': ''
+        }, {'player': 'Boateng J.', 'penalty': '', 'video': '', 'team': ' Niemcy', 'timing': '8', 'assist': ''}],
+        'home': ' Niemcy',
+        'date': '26.06.2016',
+        'finals': true
+    }, {
+        'hour': ' 15:00',
+        'redCards': [{'team': 'Irlandia', 'timing': '66', 'player': '(Podcięcie) Duffy S.'}],
+        'matchId': ' Francja_Irlandia_26.06.2016_15:00',
+        'yellowCards': [{'team': 'Irlandia', 'timing': '25', 'player': '(Podcięcie) Coleman S.'}, {
+            'team': ' Francja',
+            'timing': '27',
+            'player': 'Kante N. (Podcięcie)'
+        }, {'team': 'Irlandia', 'timing': '41', 'player': '(Niesportowe zachowanie) Hendrick J.'}, {
+            'team': ' Francja',
+            'timing': '44',
+            'player': 'Rami A. (Utrudnianie gry)'
+        }, {'team': 'Irlandia', 'timing': '72', 'player': '(Nadmierna ostrość) Long S.'}],
+        'video': 'http://www.flashscore.pl/mecz/4QdyLF2I/#wideo',
+        'away': 'Irlandia',
+        'goals': [{
+            'player': 'Brady R.',
+            'penalty': 'PEANLTY',
+            'video': '',
+            'team': 'Irlandia',
+            'timing': '2',
+            'assist': ''
+        }, {
+            'player': 'Griezmann A. (Sagna B.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Francja',
+            'timing': '58',
+            'assist': ''
+        }, {
+            'player': 'Griezmann A. (Giroud O.)',
+            'penalty': '',
+            'video': '',
+            'team': ' Francja',
+            'timing': '61',
+            'assist': ''
+        }],
+        'home': ' Francja',
+        'date': '26.06.2016',
+        'finals': true
+    }
+]
+;
+
+var data= groups.concat(finals);
