@@ -124,7 +124,12 @@ function generateMsg(totalTimeStr, goalsInBasket){
 }
 
 function drawFlags() {
-    myDiv.selectAll("div")
+    var allMatches = myDiv.append('div').attr('id', 'allMatches').style('position','absolute')
+        .style('top',2*window.innerHeight+'px')
+        .style('margin-top', marginTop+'px');
+
+    allMatches
+        .selectAll("div.flag")
         .data(data)
         .enter()
         .append("div")
@@ -226,33 +231,102 @@ var srollIndicator =  d3.select('body').append('div')
     .style('position','fixed')
     .style('top','500px')
     .style('left','100px');
+var lastScrollAction = '';
+var activeSlide = '';
 
+function renderTitle(){
+    d3.select('#mainContainer')
+        .append('div')
+        .attr('id', 'title')
+        .classed('activeSlide', true)
+        .style('position','absolute')
+        .style('top',window.innerHeight/2+'px')
+        .style('font-size','3em')
+        .style('left','200px')
+        .html('<h1>EURO 2016 GOALS</h1>');
+};
+function stickTitle(){
+    d3.select('#title')
+        .classed('activeSlide', false)
+        // .transition().delay(1).duration(1000)
+        .style('position','absolute')
+        .style('top',window.innerHeight/2+'px')
+        ;
+};
+function drawFirstMatch(){
+
+}
+var slides_down = {
+    title: window.innerHeight,
+    firstMatch: 2*window.innerHeight,
+    firstMatchTimeline: 2*window.innerHeight,
+    firstMatchMinimize: 2.5*window.innerHeight,
+    allMatches: 2.5*window.innerHeight + myDivWidth,
+    histogram: 3.5*window.innerHeight + myDivWidth,
+    griezmann: 3.5*window.innerHeight + myDivWidth
+
+}
+var slides = {
+    title: window.innerHeight,
+    firstMatch: 2*window.innerHeight,
+    firstMatchTimeline: 2*window.innerHeight,
+    firstMatchMinimize: 2.5*window.innerHeight,
+    allMatches: 2.5*window.innerHeight + myDivWidth,
+    histogram: 3.5*window.innerHeight + myDivWidth,
+    griezmann: 3.5*window.innerHeight + myDivWidth
+
+}
+if (!document.getElementById('title')){
+    renderTitle();
+}
 window.onscroll = function () {
     var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
     var scrollDown = Math.sign(window.scrollY-prevScrollPos) >=0 ? 1 :0;
     prevScrollPos = scrollTop;
 
+    if (scrollDown){
+        if (scrollTop<slides.title){
+
+        }
+        if (scrollTop>slides.title){
+            if (!document.getElementById('allMatches')) {
+                drawFlags();
+                drawBalls();
+            }
+        }
+
+    }
 
     srollIndicator.html('<h1>scrollTop: '+Math.round(scrollTop)+'</h1>');
-    if (scrollTop<myDivHeight){
-        ballsTransitionMiddleTop(scrollTop);
-        goalsDiv.classed('hist', false);
-    }
-    if (goalsDiv.classed('hist') &&scrollTop<myDivHeight+500){
-        moveBallsTop()
-        goalsDiv.classed('hist', false);
-    }
-    if (scrollTop>myDivHeight +500&& !goalsDiv.classed('hist')){
-        drawHistogramFromBalls();
-    }
-    if (scrollTop>myDivHeight +1500){
-        griezmann();
-    }
+
+    // if (scrollTop<myDivHeight){
+    //     ballsTransitionMiddleTop(scrollTop);
+    //     goalsDiv.classed('hist', false);
+    // }
+    // if (scrollTop<myDivHeight+500 && goalsDiv.classed('hist') ){
+    //     moveBallsTop()
+    //     goalsDiv.classed('hist', false);
+    //     d3.select('#histAxis').remove();
+    // }
+    // if (scrollTop>myDivHeight +500 && !goalsDiv.classed('hist')){
+    //     drawHistogramFromBalls();
+    // }
+    // if (scrollTop>myDivHeight +1500){
+    //     griezmann();
+    // }
 };
-// var bestScorers =[];
-// dataModified = _.each(goalData, function (g){
-//     g.
-// })
+var bestScorers ={};
+dataModified = _.each(goalData, function (g){
+          var scorer = g.player.replace(/\(.*\)/i, '').trim();
+    console.log('___-> scorer', scorer);
+    console.log('___-> bestScorers.hasOwnProperty(scorer)', bestScorers.hasOwnProperty('"'+scorer+'"'));
+    console.log('___-> bestScorers[scorer]', bestScorers['"'+scorer+'"']);
+    bestScorers.hasOwnProperty('"'+scorer+'"')? bestScorers['"'+scorer+'"'] +=1: bestScorers['"'+scorer+'"'] =1  ;
+        // bestScorers[scorer] ? bestScorers.scorer +=1 : 1;
+    console.log('___-> bestScorers[scorer]', bestScorers['"'+scorer+'"']);
+
+});
+    console.log('___-> bestScorers', bestScorers);
 // allScorers = _.unique(goalData, "player", function(f){});
 // console.log('___-> allScorers', allScorers);
 //
@@ -374,8 +448,9 @@ function drawHistogramFromBalls(){
         });
 
     var histAxis = goalsDiv.append('div')
+        .attr('id', 'histAxis')
         .style('position', 'fixed')
-        .style('top', window.innerHeight/2 + 'px')
+        .style('top', window.innerHeight/2 + histBallRadius+'px')
         .style('left', 0 + 'px')
         // .style('left', window.innerWidth/2-12*histBallRadius + 'px')
         .style('width',  '100%')
@@ -384,7 +459,7 @@ function drawHistogramFromBalls(){
 
     histAxis.selectAll('div').data(d3.range(12)).enter().append('div').each(function(d, i){
         d3.select(this).style('background', 'green') .style('position', 'fixed').style('top', window.innerHeight/2+20 + 'px')
-            .style('left', window.innerWidth/2-12*histBallRadius +(i+1)*2*histBallRadius +'px')
+            .style('left', window.innerWidth/2-12*histBallRadius +(i+1/2)*2*histBallRadius +'px')
             .style('font-size',  '18px')
             .style('top',  window.innerHeight/2+50+'px')
             .style('color',  'white')
@@ -393,6 +468,7 @@ function drawHistogramFromBalls(){
             .html(d)
     })
         ;
+    updateGoalsContainer();
 }
 function ballsTransitionMiddleTop(scrollTop, scrollDown) {
 console.log('___-> ballsTransitionMiddleTop');
@@ -403,10 +479,6 @@ console.log('___-> ballsTransitionMiddleTop');
             var position = d3.select(this).style('position');
 
             var totalTime = (d.matchNumber ) * 90 + parseInt(d.timing);
-            var minutes = totalTime % 60;
-
-            var minutesString = minutes.toString() + ' m';
-            var hoursString = Math.floor((totalTime ) / 60).toString() + ' h ';
 
             var msg = 'EMPTY?';
             //    GO TOP
@@ -414,10 +486,9 @@ console.log('___-> ballsTransitionMiddleTop');
                 if (!d3.select(this).classed('timeline-top')&& !d3.select(this).classed('hist')) {
                     goalsInBasket += 1;
                     d3.select(this).classed('timeline-top', true);
-                    updateGoalsContainer(hoursString, minutesString, goalsInBasket);
+                    updateGoalsContainer(totalTime, goalsInBasket);
                 }
                 d3.select(this)
-                        .classed('hist', false)
                         .style('position', 'fixed')
                         .style('top', marginTop + 'px')
                         .transition().delay(0).duration(500)
@@ -429,7 +500,7 @@ console.log('___-> ballsTransitionMiddleTop');
                 if (d3.select(this).classed('timeline-top')){
                     goalsInBasket -= 1;
                     d3.select(this).classed('timeline-top', false);
-                    updateGoalsContainer(hoursString, minutesString, goalsInBasket);
+                    updateGoalsContainer(totalTime, goalsInBasket);
                 }
 
                 d3.select(this)
@@ -442,15 +513,24 @@ console.log('___-> ballsTransitionMiddleTop');
         })
     ;
 }
-function updateGoalsContainer(hoursString, minutesString, goalsInBasket){
-    var totalTimeStr = hoursString + minutesString;
-    msg = generateMsg(totalTimeStr, goalsInBasket);
+
+function updateGoalsContainer(totalTime, goalsInBasket){
+
+    var minutes = totalTime % 60;
+    var minutesString = minutes.toString() + ' m';
+    var hoursString = Math.floor((totalTime ) / 60).toString() + ' h ';
+    if (totalTime) {
+        var totalTimeStr = hoursString + minutesString;
+        msg = generateMsg(totalTimeStr, goalsInBasket);
+    }else {msg = generateMsg(numberOfMatches*90, goalData.length)}
+
     goalsContainer.html(msg);}
 function moveBallsTop() {
     console.log('___-> moveBallstop');
     goalsDiv.selectAll(".ball")
         .each(function (d, i) {
             d3.select(this)
+                .classed('hist', false)
                 .classed('timeline-top', true)
                 .transition().delay(1).duration(500)
                 .style('width', '15px')
@@ -472,8 +552,8 @@ function moveBallsTop() {
 window.onload = function () {
     setTimeout(function () {
         scrollTo(0, 0);
-        drawFlags();
-        drawBalls();
+        // drawFlags();
+        // drawBalls();
     }, 100); //100ms for example
 }
 
