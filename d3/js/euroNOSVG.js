@@ -1,3 +1,4 @@
+scrollTo(0, 0);
 var showingAverages =  false;
 var prevScrollPos = window.scrollY;
 var histogram = false ;
@@ -62,7 +63,7 @@ for (i = 0; i < data.length; i++) {
 
 
 var myDiv = d3.select("#mainContainer");
-var topContainerHeight = 70;
+var topContainerHeight = 100;
 var topContainer = d3.select('#topContainer');
     topContainer.style('height',topContainerHeight+'px')
         .style('background-color','white')
@@ -76,6 +77,7 @@ var topContainer = d3.select('#topContainer');
 var goalsContainer = topContainer.append('div')
     .attr('id','goalsContainer')
     .style('position','fixed')
+    .style('opacity','0')
     .style('top',0)
     .style('margin-top', marginTop+'px')
     .style('padding','20px')
@@ -107,11 +109,12 @@ var xScale = d3.scaleLinear()
     .range([marginTop, myDivWidth - marginTop]);
 
 var goalSvg = topContainer.append('div')
+        .attr('id', 'goalnet')
         .style('position', 'fixed')
-        .style('left', divMiddleAbsolute-50+'px')
-        .style('top', 0+'px')
         .style('width', 100+'px')
         .style('height', 80+'px')
+        .style('left', divMiddleAbsolute-50+'px')
+        .style('bottom', 0+'px')
         .style('background-image', "url('../d3/img/goal.svg')")
         .style('background-size', "cover")
         // .style('background-color', "black")
@@ -141,7 +144,7 @@ function drawFlags() {
             for (j = 0; j < 2; j++) {
                 var _id = 'id' + (_teams[j] + d.date).replace(/\./g, '').replace(/ /g, '').replace(/:/g, '');
                 var fill = 'url(#' + _teams[j] + ')';
-                var className = _teams[j]
+                var className = _teams[j];
                 var offset = j ? ballRadius + 10 : -flagWidth - ballRadius - 10;
 
                 var cx = Math.round(divMiddleAbsolute + j * (flagWidth + spaceBetweenFlagsMiddle)) + offset;
@@ -150,12 +153,11 @@ function drawFlags() {
                     className = 'NorthernIreland'
                 }
                 //console.log(scaledY);
-                myDiv
+                allMatches
                     .append("div")
                     .classed(className, true)
                     .classed('rect', true)
                     .on("click", function () {
-                        console.log(d);
                     })
                     .attr("id", _id)
                     .style('position', 'absolute')
@@ -181,13 +183,15 @@ function drawFlags() {
     }
 
 function drawBalls(){
-goalsDiv.selectAll("div")
+
+    goalsDiv.selectAll("div")
+    // flagStartingHeight=
     .data(goalData)
     .enter()
     .append("div")
     .classed("ball", true)
     .each(function (d, i) {
-        var scaledY = Math.round(yScale((d.matchNumber) * scaledMatchLength + 5 + parseInt(d.timing) * scaledMatchLength / 130)); /// aka timeFromStart
+        var scaledY = 2*window.innerHeight+marginTop+Math.round(yScale((d.matchNumber) * scaledMatchLength + 5 + parseInt(d.timing) * scaledMatchLength / 130)); /// aka timeFromStart
         var _describedMatch = _.find(data, function (dd) {
             return d.matchId == dd.matchId
         });
@@ -240,22 +244,13 @@ function renderTitle(){
         .attr('id', 'title')
         .classed('activeSlide', true)
         .style('position','absolute')
-        .style('top',window.innerHeight/2+'px')
+        .style('top',window.innerHeight-300+'px')
         .style('font-size','3em')
-        .style('left','200px')
+        .style('width','100%')
+        .style('text-align','center')
         .html('<h1>EURO 2016 GOALS</h1>');
 };
-function stickTitle(){
-    d3.select('#title')
-        .classed('activeSlide', false)
-        // .transition().delay(1).duration(1000)
-        .style('position','absolute')
-        .style('top',window.innerHeight/2+'px')
-        ;
-};
-function drawFirstMatch(){
 
-}
 var slides_down = {
     title: window.innerHeight,
     firstMatch: 2*window.innerHeight,
@@ -271,154 +266,110 @@ var slides = {
     firstMatch: 2*window.innerHeight,
     firstMatchTimeline: 2*window.innerHeight,
     firstMatchMinimize: 2.5*window.innerHeight,
-    allMatches: 2.5*window.innerHeight + myDivWidth,
-    histogram: 3.5*window.innerHeight + myDivWidth,
-    griezmann: 3.5*window.innerHeight + myDivWidth
+    allMatches: 2.5*window.innerHeight + myDivHeight,
+    histogram: 3.5*window.innerHeight + myDivHeight,
+    griezmann: 3.5*window.innerHeight + myDivHeight
 
 }
 if (!document.getElementById('title')){
     renderTitle();
 }
+
+
+if (!document.getElementById('allMatches')) {
+    drawFlags();
+    drawBalls();
+}
 window.onscroll = function () {
     var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    scrollTop=Math.round(scrollTop);
     var scrollDown = Math.sign(window.scrollY-prevScrollPos) >=0 ? 1 :0;
     prevScrollPos = scrollTop;
 
     if (scrollDown){
         if (scrollTop<slides.title){
+           d3.select('#goalnet').style('top', window.innerHeight-scrollTop+'px');
+            goalsContainer.transition().delay(1).duration(1000).style('opacity', '0');
+        }else if (scrollTop<slides.allMatches){
+            d3.select('#goalnet').style('top', 0+'px');
+            ballsTransitionMiddleTop(scrollTop);
+        }
+        if (scrollTop>slides.firstMatchMinimize ){
+            goalsContainer.style('opacity', '1');
+        }
+        if (scrollTop>slides.allMatches ){
+            drawHistogramFromBalls();
+        }
+        if (scrollTop>slides.histogram ){
+            d3.select('#histAxis')
+                .transition().delay(1).duration(1000)
+                .style('opacity', '0')
+                .transition().delay(1000).duration(1)
+                .style('display', 'none');
+            goalsContainer.transition().delay(1).duration(1000).style('opacity', '0');
+            griezmann();
+        }
+
+    } else {
+        if (scrollTop<slides.title){
+            d3.select(goalsContainer).style('opacity', '0').transition().delay(1).duration(1000);
+            d3.select('#goalnet').style('top', window.innerHeight-scrollTop+'px');
+        }
+        if (scrollTop<slides.allMatches){
+            ballsTransitionMiddleTop(scrollTop);
+            d3.selectAll('.ball').classed('hist', false);
+            d3.select('#histAxis')
+                .transition().delay(1).duration(1000)
+                .style('opacity', '0')
+                .transition().delay(1000).duration(1)
+                .style('display', 'none');
+        }
+        if (scrollTop<slides.griezmann &&  scrollTop > slides.allMatches) {
+            d3.select('#histAxis')
+                .transition().delay(1).duration(1000)
+                .style('opacity', '1')
+                .transition().delay(1000).duration(1)
+                .style('display', 'initial');
+            drawHistogramFromBalls();
+            d3.select('#scorersNames')
+                .transition().delay(1).duration(1000)
+                .style('opacity', '0')
+                .transition().delay(1000).duration(1)
+                .style('display', 'none');
+
 
         }
-        if (scrollTop>slides.title){
-            if (!document.getElementById('allMatches')) {
-                drawFlags();
-                drawBalls();
-            }
-        }
+    if (scrollTop<slides.allMatches+500 ) {
+            moveBallsTop();
 
+
+        }
     }
 
-    srollIndicator.html('<h1>scrollTop: '+Math.round(scrollTop)+'</h1>');
-
-    // if (scrollTop<myDivHeight){
-    //     ballsTransitionMiddleTop(scrollTop);
-    //     goalsDiv.classed('hist', false);
-    // }
-    // if (scrollTop<myDivHeight+500 && goalsDiv.classed('hist') ){
-    //     moveBallsTop()
-    //     goalsDiv.classed('hist', false);
-    //     d3.select('#histAxis').remove();
-    // }
-    // if (scrollTop>myDivHeight +500 && !goalsDiv.classed('hist')){
-    //     drawHistogramFromBalls();
-    // }
-    // if (scrollTop>myDivHeight +1500){
-    //     griezmann();
-    // }
+    // srollIndicator.html('<h1>scrollTop: '+Math.round(scrollTop)+'</h1>');
 };
 var bestScorers ={};
+
 dataModified = _.each(goalData, function (g){
           var scorer = g.player.replace(/\(.*\)/i, '').trim();
-    console.log('___-> scorer', scorer);
-    console.log('___-> bestScorers.hasOwnProperty(scorer)', bestScorers.hasOwnProperty('"'+scorer+'"'));
-    console.log('___-> bestScorers[scorer]', bestScorers['"'+scorer+'"']);
+    // console.log('___-> scorer', scorer);
+    // console.log('___-> bestScorers.hasOwnProperty(scorer)', bestScorers.hasOwnProperty('"'+scorer+'"'));
+    // console.log('___-> bestScorers[scorer]', bestScorers['"'+scorer+'"']);
     bestScorers.hasOwnProperty('"'+scorer+'"')? bestScorers['"'+scorer+'"'] +=1: bestScorers['"'+scorer+'"'] =1  ;
         // bestScorers[scorer] ? bestScorers.scorer +=1 : 1;
-    console.log('___-> bestScorers[scorer]', bestScorers['"'+scorer+'"']);
+    // console.log('___-> bestScorers[scorer]', bestScorers['"'+scorer+'"']);
 
 });
-    console.log('___-> bestScorers', bestScorers);
-// allScorers = _.unique(goalData, "player", function(f){});
-// console.log('___-> allScorers', allScorers);
-//
-// function griezmann() {
-//     console.log('___-> griezmann');
-//     goalsDiv.selectAll(".ball")
-//         .each(function (d, i) {
-//             d3.select(this)
-//                 .classed('timeline-top', true)
-//                 .transition().delay(1).duration(500)
-//                 .style('width', '15px')
-//                 .style('height', '15px')
-//                 .style('top', marginTop + 'px')
-//                 .style('left', d.xPosWhenFixedToTop + 'px')
-//
-//             ;
-//         });
-// }
+
+var topScorerTreshold = 3;
+var scorers = Object.keys(bestScorers).map(function (key) {return {player: key.replace(/"/g, '').trim(),goals: bestScorers[key]}});
+var sortedScorersToDisplay = _.filter(scorers, function(s){return s.goals>=topScorerTreshold});
+
+sortedScorersToDisplay  = _.sortBy(sortedScorersToDisplay, "goals").reverse();
+
+var topScorersByName = _.pluck(sortedScorersToDisplay, "player");
 
 
-function drawHistogram() {
-    var x_avg = d3.scaleLinear()
-        .domain([0, 120])
-        .range([0, myDivWidth]);
-
-    var binsData = _.map(goalData, function (d) {
-            return parseInt(d.timing)
-        }
-    );
-
-    var bins = d3.histogram()
-        .domain(x_avg.domain())
-        .thresholds(x_avg.ticks(10))
-        (binsData);
-    var y_avg = d3.scaleLinear()
-        .domain([0, d3.max(binsData, function (d) {
-            return d;
-        })])
-        .range([0, myDivHeight / 2 + marginTop]);
-
-    var svg_avg = myDiv.append("svg")
-        .attr("id", 'svg_avg')
-        .style("position", 'fixed')
-        .style("top", 0+'px')
-        .style("left", 0+'px')
-        .style("z-index", '10001')
-        .attr("width", myDivWidth + 2 * marginTop)
-        .attr("height", window.innerHeight / 2 + marginTop)
-        .append("g")
-        .attr("transform", "translate(" + marginTop + "," + marginTop + ")");
-    var bar_avg = svg_avg.selectAll(".bar")
-        .data(bins)
-        .enter().append("g")
-        .attr("class", "bar")
-        .attr("transform", function (d) {
-            return "translate(" + Math.round(x_avg(d.x0)) + "," + Math.round(window.innerHeight / 2 - y_avg(d.length)) + ")";
-        })
-        ;
-
-    bar_avg.append("rect")
-        .attr("x", 1)
-        .attr("width", x_avg(bins[0].x1) - x_avg(bins[0].x0) - 1)
-        .attr("height", function (d) {
-            return y_avg(d.length);
-        });
-
-    bar_avg.append("text")
-        .attr("dy", ".75em")
-        .attr("y", 6)
-        .attr("x", (x_avg(bins[0].x1) - x_avg(bins[0].x0)) / 2)
-        .attr("text-anchor", "middle")
-        .text(function (d) {
-            return d.length;
-        });
-
-    svg_avg.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + window.innerHeight / 2 + ")")
-        .call(d3.axisBottom(x_avg));
-
-    goalsDiv.selectAll(".ball")
-        .each(function (d, i) {
-            d3.select(this)
-                .style('position', 'fixed')
-                .transition().delay(0).duration(500)
-                .style('top', window.innerHeight / 2 + 'px')
-                .style('left', d.xPosWhenFixedToTop + 'px')
-            ;
-
-        });
-    showingAverages= true;
-}
 function drawHistogramFromBalls(){
     var histogramData = {   10:0,20:0, 30:0,40:0,50:0,60:0,70:0,80:0,90:0,100:0,110:0,120:0   };
     var usedData = {   10:0,20:0, 30:0,40:0,50:0,60:0,70:0,80:0,90:0,100:0,110:0,120:0   };
@@ -446,42 +397,129 @@ function drawHistogramFromBalls(){
             ;
             usedData[goalTenMin] +=1;
         });
-
-    var histAxis = goalsDiv.append('div')
-        .attr('id', 'histAxis')
-        .style('position', 'fixed')
-        .style('top', window.innerHeight/2 + histBallRadius+'px')
-        .style('left', 0 + 'px')
-        // .style('left', window.innerWidth/2-12*histBallRadius + 'px')
-        .style('width',  '100%')
-        .style('height', 3*histBallRadius+ 'px')
-        .style('background', 'yellow');
-
-    histAxis.selectAll('div').data(d3.range(12)).enter().append('div').each(function(d, i){
-        d3.select(this).style('background', 'green') .style('position', 'fixed').style('top', window.innerHeight/2+20 + 'px')
-            .style('left', window.innerWidth/2-12*histBallRadius +(i+1/2)*2*histBallRadius +'px')
-            .style('font-size',  '18px')
-            .style('top',  window.innerHeight/2+50+'px')
-            .style('color',  'white')
-            .style('width',  '20px')
+    d3.select('#histAxis')
+        .style('display', 'initial')
+        .transition().delay(1).duration(1500)
+        .style('opacity', '1')
+    ;
+    if (!document.getElementById('histAxis')){
+        var histAxis = goalsDiv.append('div')
+            .attr('id', 'histAxis')
+            .style('position', 'fixed')
+            .style('top', window.innerHeight/2 + histBallRadius+'px')
+            .style('left', window.innerWidth/2-12*histBallRadius)
+            // .style('right', 'auto')
+            .style('left', window.innerWidth/2-12*histBallRadius + 'px')
+            .style('width',  25*histBallRadius+'px')
             .style('height', 3*histBallRadius+ 'px')
-            .html(d)
-    })
+            .style('border-top', '2px solid lightgray')
+            .style('background', 'yellow');
+
+          histAxis.selectAll('div').data(d3.range(12)).enter().append('div').each(function(d, i){
+            d3.select(this)
+                // .style('background', 'green')
+                .style('position', 'fixed').style('top', window.innerHeight/2+20 + 'px')
+                .style('left', window.innerWidth/2-12*histBallRadius +(i+1/2)*2*histBallRadius +'px')
+                .style('font-size',  '18px')
+                .style('top',  window.innerHeight/2+20+'px')
+                .style('color',  'green')
+                .style('width',  '20px')
+                .style('height', 3*histBallRadius+ 'px')
+                .html("<h4>"+d*10+"'</h4>")
+          })
         ;
+    }
     updateGoalsContainer();
 }
-function ballsTransitionMiddleTop(scrollTop, scrollDown) {
+function griezmann(){
+    var leftMarginfForGriezmann = window.innerWidth * 0.35;
+    scorersBallRadius=30;
+    goalsDiv.classed('hist', false);
+    goalsDiv.classed('topScorers', true);
+    console.log('___-> topscorers');
+    var ballsInLine = Math.floor((window.innerWidth- 2*marginTop-leftMarginfForGriezmann)/(2*scorersBallRadius));
+    //prepare boxes for players names
+console.log('___-> ballsInLine', ballsInLine);
+    d3.select('#scorersNames')
+        .style('display', 'initial')
+        .transition().delay(1).duration(1000)
+        .style('opacity', '1')
+        ;
+    if (!document.getElementById('scorersNames')){
+        var scorersNames = goalsDiv.append('div')
+            .attr('id', 'scorersNames')
+            .style('position', 'fixed')
+            .style('top', 200+'px')
+            .style('left', '30%')
+
+        sortedScorersToDisplay.push({goals:_.filter(scorers, function(s){return s.goals==2}).length, player:"Two goal scorers:"})
+        sortedScorersToDisplay.push({goals:_.filter(scorers, function(s){return s.goals==1}).length, player:"One goal scorers:"})
+        scorersNames.selectAll('div').data(sortedScorersToDisplay).enter().append('div').each(function(d, i){
+            if (i == sortedScorersToDisplay.length-1){var mod=0.5}else{var mod =0};
+            console.log('___-> mod', mod);
+            d3.select(this)
+                .style('position', 'fixed')
+                .style('top',  -300+ 'px')
+                .style('left', 2*scorersBallRadius +'px')
+                .style('top',  200+2*(i+mod)*scorersBallRadius+'px')
+                .style('color',  'green')
+                .style('width',  '30%')
+                .style('text-align',  'right')
+                .style('height', 3*scorersBallRadius+ 'px')
+                .html("<h2>"+d.player.replace(/"/g, '')+"</h2>")
+        })
+        ;
+    }
+    var oneGoalsScorers = _.filter(scorers, function(s){return s.goals==1});
+    var twoGoalsScorers = _.filter(scorers, function(s){return s.goals==2});
+    var oneGoalScorersUsed = 0;
+    var twoGoalScorersUsed = 0;
+    scorersUsed = _.clone(bestScorers);
+    console.log('___-> scorersUsed', scorersUsed);
+    d3.selectAll('.ball')
+        .each(function (d, i) {
+
+            player = d.player.replace(/\(.*\)/i, '').trim();
+            if (_.contains(topScorersByName, player)){console.log('_ccc__-> player', player);
+                scorersUsed['"'+player+'"'] -=1;
+                cy = 200+(2*topScorersByName.indexOf(player)+0.5)*scorersBallRadius;
+                cx = leftMarginfForGriezmann + (bestScorers['"'+player+'"'] -scorersUsed['"'+player+'"']+1)*scorersBallRadius
+            } else if (_.findWhere(scorers, {player: player}).goals ==2 ){
+                cy = 200+(2*topScorersByName.length+0.5)*scorersBallRadius+Math.floor(twoGoalScorersUsed/ballsInLine)*scorersBallRadius;
+                cx = leftMarginfForGriezmann + ((twoGoalScorersUsed)%ballsInLine+2)*scorersBallRadius;
+                twoGoalScorersUsed +=1;
+            } else if (_.findWhere(scorers, {player: player}).goals ==1){
+
+                cy = 200+(2*topScorersByName.length+3.5)*scorersBallRadius+Math.floor(oneGoalScorersUsed/ballsInLine)*scorersBallRadius;//+
+                cx = leftMarginfForGriezmann+((oneGoalScorersUsed)%ballsInLine+2)*scorersBallRadius;
+                oneGoalScorersUsed +=1;
+
+            }
+
+            d3.select(this)
+                .classed('hist', true)
+                .classed('timeline-top', false)
+                .transition().delay(1).duration(500)
+                .style('top', cy + 'px')
+                .style('left', cx + 'px')
+                .style('width', histBallRadius+ 'px')
+                .style('height', histBallRadius+ 'px')
+            ;
+
+        });
+}
+function ballsTransitionMiddleTop(scrollTop) {
 console.log('___-> ballsTransitionMiddleTop');
     goalsDiv.selectAll(".ball")
         .each(function (d, i) {
-
             var top = parseInt(d3.select(this).style('top').replace('px', ''));
             var position = d3.select(this).style('position');
-
             var totalTime = (d.matchNumber ) * 90 + parseInt(d.timing);
 
             var msg = 'EMPTY?';
+
             //    GO TOP
+
             if (d.scaledY < scrollTop + marginTop) {
                 if (!d3.select(this).classed('timeline-top')&& !d3.select(this).classed('hist')) {
                     goalsInBasket += 1;
@@ -527,7 +565,7 @@ function updateGoalsContainer(totalTime, goalsInBasket){
     goalsContainer.html(msg);}
 function moveBallsTop() {
     console.log('___-> moveBallstop');
-    goalsDiv.selectAll(".ball")
+    goalsDiv.selectAll(".ball.hist")
         .each(function (d, i) {
             d3.select(this)
                 .classed('hist', false)
@@ -554,6 +592,6 @@ window.onload = function () {
         scrollTo(0, 0);
         // drawFlags();
         // drawBalls();
-    }, 100); //100ms for example
+    }, 300); //100ms for example
 }
 
