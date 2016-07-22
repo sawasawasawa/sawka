@@ -2,6 +2,7 @@
 
 *{
 font-family: 'Slabo 27px', serif;
+
 /*font-family: 'Prompt', sans-serif;*/
 /*font-family: 'Oswald', sans-serif;*/
 /*font-family: 'Montserrat', sans-serif;*/
@@ -11,45 +12,29 @@ font-family: 'Slabo 27px', serif;
 /*font-family: 'Josefin Sans', sans-serif;*/
 /*font-family: 'BioRhyme', serif;*/
 }
+h1 {font-size: 2em;
+    color:white; text-indent: 50px;
+    letter-spacing: 2px;}
+p , h2{font-size: 1.5em;
+    color:white;
+    text-align:justify;
+    text-justify:inter-ideograph;}
 
+/*#titlePic {background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%)}*/
 body {margin-top:16;
     margin-left:0;
     margin-right:0;
-    /*background-color: rgba(69, 255, 69, 0.29);*/
+    /*background: linear-gradient(to bottom, rgba(200,229,194,1) 0%, rgba(177,224,166,1) 15%, rgba(153,219,138,1) 30%, rgba(137,212,119,1) 43%, rgba(97,195,70,1) 76%, rgba(200,229,194,1) 100%);*/
+    /*background: linear-gradient(0deg, #0fb8ad 0%, #1fc8db 51%,  #2cb5e8 75%)*/
+    background-color: dodgerblue;
 }
 g {
     stroke-width: 3px;
     color: black;
 }
 
-.d3-tip {
-    line-height: 1;
-    font-weight: bold;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    border-radius: 2px;
-}
-
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-    box-sizing: border-box;
-    display: inline;
-    font-size: 10px;
-    width: 100%;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
-    content: "\25BC";
-    position: absolute;
-    text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-    margin: -1px 0 0 0;
-    top: 100%;
-    left: 0;
-}
+.activeSlide {
+    z-index: 10001;}
 
 #coverer {
     position: relative;
@@ -78,14 +63,18 @@ circle {
 }
 
 .rect {
+
     /*border: 0px solid black;*/
     /*min-width: 20px;*/
     /*min-height: 20px;*/
     /*!*background: url('../img/arnold.jpg');*!*/
     /*!*background-size: cover ;*!*/
-    -webkit-box-shadow: 10px 7px 135px -21px rgba(0,0,0,1);
-    -moz-box-shadow: 10px 7px 135px -21px rgba(0,0,0,1);
-    box-shadow: 10px 7px 135px -21px rgba(0,0,0,1);
+    /*-webkit-box-shadow: 0px 20px 45px 5px rgba(255, 255, 255, 1);*/
+    /*-moz-box-shadow:0px 20px 45px 5px rgba(255, 255, 255, 1);*/
+    /*box-shadow: 0px 10px 45px 5px rgba(255, 255, 255, 1);*/
+    -webkit-box-shadow:inset 0px 0px 20px 0px rgba(0,0,0,0.51);
+    -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.51);
+    box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.51);
 }
 
 #graph2 {
@@ -96,7 +85,7 @@ circle {
 .ball {
     background: url('../img/ball.svg');
     background-size: cover ;
-    z-index:999;
+    z-index:10001;
 
 }
 
