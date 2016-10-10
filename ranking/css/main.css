@@ -1,69 +1,138 @@
-@import 'https://fonts.googleapis.com/css?family=Catamaran';
-*{
-    font-family:Catamaran;
-    /*|Comfortaa|Dosis|Raleway|Sanchez;*/
+/*@import 'https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline';*/
+/*@import 'https://fonts.googleapis.com/css?family=Dosis';*/
+/*@import 'https://fonts.googleapis.com/css?family=Exo';*/
+/*@import 'https://fonts.googleapis.com/css?family=Kumar+One+Outline';*/
+/*@import 'https://fonts.googleapis.com/css?family=Limelight';*/
+/*@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';*/
+@import 'https://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab|Lato';
+/*@import 'https://fonts.googleapis.com/css?family=Roboto+Slab';*/
+/*@import 'https://fonts.googleapis.com/css?family=Sacramento';*/
+/*@import 'https://fonts.googleapis.com/css?family=Unica+One&subset=latin-ext;';*/
+/*@import 'https://fonts.googleapis.com/css?family=Sanchez';*/
+/*@import url(https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext);*/
+
+
+* {
+    /*font-family: 'Bungee Inline', cursive;*/
+    /*font-family: 'Dosis', sans-serif;*/
+    /*font-family: 'Exo', sans-serif; !*niice*!*/
+    font-family: "Lato", sans-serif;
+    font-family: 'Roboto Slab', serif; /* _-cool-_  */
+    /*font-family: 'Poiret One', cursive; !*niiiice rounded like in 30*!*/
+    /*font-family: 'Open Sans Condensed', sans-serif; !*too small and narrow*!*/
+    /*font-family: 'Bungee', cursive;*/
+    /*font-family: 'Bungee Hairline', cursive;*/
+    /*font-family: 'Kumar One Outline', cursive;*/
+    /*font-family: 'Sacramento', cursive;*/
+    /*font-family: 'Unica One', cursive; !* new comic sans? *!*/
+    /*font-family: 'Limelight', cursive; !*nice for title - lata 30*!*/
+
+    /*font-family:Catamaran;*/
+    /*font-family: Comfortaa;*/
+    /*font-family: Dosis; !*  - ładne cyfry*!*/
+    /*font-family: Raleway;*/
+    /*font-family: Sanchez;*/
 }
 
-body, html{padding:10;
-margin:0;
+body, html {
+    padding: 10;
+    margin: 0;
+    max-width:100% !important;
 }
 
-.subtitle > *{
+
+
+.white {
+    padding: 50px 0 50px 0;
+    background: white ;
+    background: -webkit-linear-gradient(right, rgba(255,0,0,0) 0%, white 10%, white 90%, rgba(255,0,0,0) 100%); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(right, rgba(255,0,0,0) 0%, white 10% white 90%, rgba(255,0,0,0) 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+* > * {
+    max-width: 100%;
+}
+.header > *,
+.header > * > * > *,
+.header > * > * > * > * {
+    font-family: 'Poiret One', cursive;
+}
+
+.subtitle > * {
     vertical-align: top;
     display: inline;
     margin: 0 auto;
 }
 
 #limit em {
-    margin-top:-17px;
+    margin-top: -17px;
     font-size: 2.5em;
-    font-style: normal}
+    font-style: normal
+}
 
 #limit input, #limit em {
-    top:-10px;
-    display:block;
-    width:100%;
-    text-align:center;
+    top: -10px;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
-.header {
-    padding:20px;}
-.fullwidth {
-    display:block;
-    margin:auto;
-    width:100%;
-    min-width:680;}
-.gray {background-color: #ececec;}
-#limit {display:inline-block}
 
-#limit > input {font-size:2em;
-    display:inline-block;
-width:120px;
-border:none;}
+.fullwidth {
+    margin: 20px;
+    padding: 20px 0;
+    display: block;
+    margin: auto;
+    width: 100%;
+    min-width: 680px;
+    overflow: auto;
+}
+
+.gray {
+    background-color: #ececec;
+}
+
+#limit {
+    display: inline-block
+}
+
+#limit > input {
+    font-size: 2em;
+    display: inline-block;
+    width: 120px;
+    border: none;
+}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
 }
 
-h1 {font-size:3em;}
-g.axis path, g.axis line {
-    fill:none;
-    stroke:black;
+/*h1, h2, h3, h4, h5, h6 {*/
+/*font-family: 'Poiret One', cursive;*/
+/*}*/
+h1 {
+    font-size: 3em;
 }
+
+g.axis path, g.axis line {
+    fill: none;
+    stroke: black;
+}
+
 g.axis text, g.bubbles text {
-    fill:black;
-    font-family:sans-serif;
+    fill: black;
+    font-family: sans-serif;
 }
 
 g.bubbles line {
-    stroke-width:5;
-    stroke:black;
+    stroke-width: 5;
+    stroke: black;
 }
 
 /*g.bubbles circle {*/
-    /*fill:rgba(255,0,64,0.5);*/
-    /*stroke:rgb(255,0,64);*/
-    /*stroke-width:3;*/
+/*fill:rgba(255,0,64,0.5);*/
+/*stroke:rgb(255,0,64);*/
+/*stroke-width:3;*/
 /*}*/
 /*g.bubbles text {*/
 /*text-anchor:middle;*/
@@ -76,39 +145,151 @@ g.bubbles line {
 g.bubbles circle {
     /*fill:rgba(255,255,255,0.9);*/
     /*visibility: hidden;*/
-    opacity:0;
+    opacity: 0;
     stroke: rgba(185, 188, 75, 1);
-    stroke-width:0;
-    z-index:1010;
+    stroke-width: 0;
+    z-index: 1010;
 }
 
 g.bubbles text {
     /*transition:2s;*/
-    font-family:Catamaran;
+    font-family: Catamaran;
     color: black;
-    text-anchor:middle;
-    alignment-baseline:middle;
-    opacity:1;
-    pointer-events:all;
-    transition:1.3s;
-    z-index:0;
+    text-anchor: middle;
+    alignment-baseline: middle;
+    opacity: 1;
+    pointer-events: all;
+    transition: 1.3s;
+    z-index: 0;
 }
+
 /*g.bubbles text:hover {*/
-    /*opacity:1;*/
-    /*font-size:3em;*/
+/*opacity:1;*/
+/*font-size:3em;*/
 /*}*/
 
 g.threads line {
-    fill:none;
-    stroke:black;
-    opacity:0.5;
+    fill: none;
+    stroke: black;
+    opacity: 0.5;
 }
 
-g.bubbles:hover{
+g.bubbles:hover {
     background-color: blue;
 }
 
 
-/*=======================================================
-RANGE INPUT CSS, source: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
-/*=======================================================*!*/circle
+.medium {
+    background-image: url(../img/medium-tau_timeline.png);
+}
+
+.luc {
+    background-image: url(../img/luc01.png);
+}
+.kazik {
+    background-image: url(../img/kazik01.png);
+}
+.mezo {
+    background-image: url(../img/mezo01.png);
+}
+.miuosh {
+    background-image: url(../img/miuosh01.png);
+}
+
+.wordcloud-timeline {
+    width: 100%;
+    min-width: 680px;
+    min-height: 550px;
+    max-width: 1200px;
+    max-height: 750px;
+    height: 100%;
+    padding:0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.wordcloud-portrait {
+    width: 350px;
+    height: 350px;
+    margin:10px;
+    position: relative;
+    top:0;
+    right:0;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*min-width: 300px;*/
+    /*max-width: 600px;*/
+    /*min-height: 300px;*/
+    /*max-height: 600px;*/
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    /*-webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);*/
+    /*-moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);*/
+    /*box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);*/
+    position:relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset,3px 2px 0px 0px rgba(0,0,0,0.15);
+
+    /*-webkit-box-shadow: 3px 2px 0px 0px rgba(0,0,0,0.75);*/
+    /*-moz-box-shadow: 3px 2px 0px 0px rgba(0,0,0,0.75);*/
+    /*box-shadow: 3px 2px 0px 0px rgba(0,0,0,0.15);*/
+    border:1px solid rgba(0,0,0,0.15)
+}
+/*.wordcloud-portrait:before, .wordcloud-portrait:after*/
+/*{*/
+    /*content:"";*/
+    /*position:absolute;*/
+    /*z-index:-1;*/
+    /*box-shadow:0 0 20px rgba(0,0,0,0.8);*/
+    /*top:0;*/
+    /*bottom:0;*/
+    /*left:10px;*/
+    /*right:10px;*/
+    /*border-radius:100px / 10px;*/
+/*}*/
+/*.wordcloud-portrait:after*/
+/*{*/
+    /*right:10px;*/
+    /*left:auto;*/
+    /*transform:skew(8deg) rotate(3deg);*/
+
+/*}*/
+
+.container {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 1200px) {
+    .wordcloud-timeline {
+        min-height: 750px;
+        min-width: 90%;
+        width:100%;
+        max-width: 2100px;
+        max-height: 1300px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .white {
+        width:90%;
+        max-width: 1300px;
+    }
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.gray {
+    background: #f9f9f9; /* fallback for old browsers */
+    background: -webkit-linear-gradient(top, #E6E6E6 0%, #f0f0f0 70%, #f0f0f0 100%); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(top, #E6E6E6 0%, #f0f0f0 70%, #f0f0f0 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-bottom:50px;
+}

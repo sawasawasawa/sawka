@@ -1,11 +1,22 @@
-* {
-    font-family: "Helvetica Neue";
-    text-align: center;
-    position: relative;
-    right: 0px;
-    margin-left:auto;
-    margin-right:auto;
-    /*border:1px dashed lightcoral;*/
+@import 'https://fonts.googleapis.com/css?family=Catamaran';
+body, html{padding:10;
+    margin:0;
+height:100%}
+
+.pullBottom{
+    position:absolute;
+    bottom:0;
+}
+*{
+    font-family:Catamaran;
+    /*|Comfortaa|Dosis|Raleway|Sanchez;*/
+}
+.fullwidth {
+
+    background-color: rgba(255, 255, 255,0.4);
+    display:block;
+    margin:auto;
+    width:100%;
 }
 
 .menuRow {
@@ -37,8 +48,10 @@ li {
     padding: 10px;
 }
 
-.container {
-    max-width: 800px;
-    padding-top:20px;
-    margin: auto
-}
+/*#particles-js {*/
+    /*background-image: url('');*/
+    /*background-color: rgb(62, 62, 62);*/
+    /*background-size: cover;*/
+    /*background-position: 50% 50%;*/
+    /*background-repeat: no-repeat;*/
+/*}*/

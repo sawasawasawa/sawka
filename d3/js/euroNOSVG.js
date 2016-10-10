@@ -16,15 +16,6 @@ setTimeout(function () {
     // drawBalls();
 }, 50);
 
-window.onload = function () {
-    scrollTo(0, 0);
-    setTimeout(function () {
-        scrollTo(0, 0);
-        // drawFlags();
-        // drawBalls();
-    }, 300); //100ms for example
-};
-
 var goalData = [];
 data = _.sortBy(data, "date");
 data = _.sortBy(data, function(o) {
@@ -80,7 +71,7 @@ var topContainer = d3.select('body')
     topContainer.style('height',topContainerHeight+'px')
         .style('background-color','white')
         // .style('background', 'linear-gradient(green 70%, transparent )')
-        .style('position','fixed')
+            .style('position','fixed')
         // .style('top',-topContainerHeight+'px')
         .style('top',topContainerInitialOffset+'px')
         .style('width','100%')
@@ -110,7 +101,7 @@ var slides = {
     firstSlide: 2*window.innerHeight,
     allMatches: 2*window.innerHeight + mainContainerHeight,
     histogram: 3*window.innerHeight + mainContainerHeight,
-    griezmann: 4*window.innerHeight + mainContainerHeight
+    griezmann: 3.5*window.innerHeight + mainContainerHeight
 }
 
 
@@ -342,10 +333,10 @@ var slides = {
     allMatches: 2*window.innerHeight + mainContainerHeight,
     histogram: 3*window.innerHeight + mainContainerHeight,
     griezmann: 4*window.innerHeight + mainContainerHeight,
-    ronaldo: 5*window.innerHeight + mainContainerHeight,
-    topscorers: 6*window.innerHeight + mainContainerHeight,
-    final: 7*window.innerHeight + mainContainerHeight,
-    lastSlide: 8*window.innerHeight + mainContainerHeight,
+        ronaldo: 5*window.innerHeight + mainContainerHeight,
+        topscorers: 6*window.innerHeight + mainContainerHeight,
+        // final: 8*window.innerHeight + mainContainerHeight,
+        // lastSlide: 9*window.innerHeight + mainContainerHeight,
 }
 
 var bestScorers ={};
@@ -428,7 +419,7 @@ function drawHistogramFromBalls(){
     }
     updateGoalsContainer();
 }
-function griezmann(renderOnly){
+function griezmann(){
     var leftMarginfForGriezmann = window.innerWidth * 0.35;
     scorersBallRadius=30;
     goalsDiv.classed('hist', false);
@@ -446,76 +437,67 @@ function griezmann(renderOnly){
         var scorersNames = goalsDiv.append('div')
             .attr('id', 'scorersNames')
             .style('position', 'absolute')
-            .style('top', slides.histogram+'px')
-            .style('left', '10%')
+            .style('top', 0+'px')
+            .style('left', '0%')
+            .style('width',  '100%')
             ;
 
-        sortedScorersToDisplay.push({goals:_.filter(scorers, function(s){return s.goals==2}).length, player:"Two goal scorers:"});
-        sortedScorersToDisplay.push({goals:_.filter(scorers, function(s){return s.goals==1}).length, player:"One goal scorers:"});
+        sortedScorersToDisplay.push({goals:_.filter(scorers, function(s){return s.goals==2}).length, player:"Two goal scorers:"})
+        sortedScorersToDisplay.push({goals:_.filter(scorers, function(s){return s.goals==1}).length, player:"One goal scorers:"})
         scorersNames.selectAll('div').data(sortedScorersToDisplay).enter().append('div').each(function(d, i){
-            console.log('___-> renderOnly', renderOnly);
-            console.log('___-> d.player', d.player);
-            if (!renderOnly || renderOnly==d.player) {
-                if (i == sortedScorersToDisplay.length - 1) {
-                    var mod = 0.5
-                } else {
-                    var mod = 0
-                }
-                ;
-                d3.select(this)
-                    .attr('id', 'topscorer' + d.player)
-                    .classed('topscorerName', true)
-                    .style('position', 'fixed')
-                    .style('left', 100 + 'px')
-                    // .style('left', -100+'px')
-                    .style('top', 200 + (2 * i + mod) * scorersBallRadius + 'px')
-                    // .style('top',  200+*(i+mod)*scorersBallRadius+'px')
-                    .style('color', 'green')
-                    .style('width', '250px')
-                    .style('text-align', 'right')
-                    .style('height', 3 * scorersBallRadius + 'px')
-                    .html("<h2 style='text-align: right'>" + d.player.replace(/"/g, '') + "</h2>");
-            }
+            if (i == sortedScorersToDisplay.length-1){var mod=0.5}else{var mod =0};
+            d3.select(this)
+                .attr('id', 'topscorer'+d.player)
+                .classed('topscorerName', true)
+                .style('position', 'absolute')
+                .style('left', 0+'px')
+                // .style('left', -100+'px')
+                // .style('top',   slides.griezmann+200+(2*i+mod)*scorersBallRadius+'px')
+                .style('top',  slides.griezmann+200+(2*i+mod)*scorersBallRadius+'px')
+                .style('color',  'green')
+                .style('width',  '30%')
+                .style('height', 3*scorersBallRadius+ 'px')
+                .style('text-align',  'right')
+                .html("<h2 style='text-align: right'>"+d.player.replace(/"/g, '')+"</h2>")
         })
         ;
     }
-
-
+    var oneGoalsScorers = _.filter(scorers, function(s){return s.goals==1});
+    var twoGoalsScorers = _.filter(scorers, function(s){return s.goals==2});
     var oneGoalScorersUsed = 0;
     var twoGoalScorersUsed = 0;
     scorersUsed = _.clone(bestScorers);
     console.log('___-> scorersUsed', scorersUsed);
     d3.selectAll('.ball')
         .each(function (d, i) {
-            if (!renderOnly || renderOnly==d.player) {
-                player = d.player.replace(/\(.*\)/i, '').trim();
-                if (_.contains(topScorersByName, player)) {
-                    console.log('_ccc__-> player', player);
-                    scorersUsed['"' + player + '"'] -= 1;
-                    cy = 200 + (2 * topScorersByName.indexOf(player) + 0.5) * scorersBallRadius;
-                    cx = leftMarginfForGriezmann + (bestScorers['"' + player + '"'] - scorersUsed['"' + player + '"'] + 1) * scorersBallRadius
-                } else if (_.findWhere(scorers, {player: player}).goals == 2) {
-                    cy = 200 + (2 * topScorersByName.length + 0.5) * scorersBallRadius + Math.floor(twoGoalScorersUsed / ballsInLine) * scorersBallRadius;
-                    cx = leftMarginfForGriezmann + ((twoGoalScorersUsed) % ballsInLine + 2) * scorersBallRadius;
-                    twoGoalScorersUsed += 1;
-                } else if (_.findWhere(scorers, {player: player}).goals == 1) {
-                    cy = 200 + (2 * topScorersByName.length + 3.5) * scorersBallRadius + Math.floor(oneGoalScorersUsed / ballsInLine) * scorersBallRadius;//+
-                    cx = leftMarginfForGriezmann + ((oneGoalScorersUsed) % ballsInLine + 2) * scorersBallRadius;
-                    oneGoalScorersUsed += 1;
 
-                }
-
-                d3.select(this)
-                    .classed('topscorers', true)
-                    .classed('hist', false)
-                    .classed('timeline-top', false)
-                    .transition().delay(1).duration(500)
-                    .style('top', cy + 'px')
-                    .style('left', cx + 'px')
-                    .style('width', histBallRadius + 'px')
-                    .style('height', histBallRadius + 'px')
-                ;
+            player = d.player.replace(/\(.*\)/i, '').trim();
+            if (_.contains(topScorersByName, player)){console.log('_ccc__-> player', player);
+                scorersUsed['"'+player+'"'] -=1;
+                cy = slides.griezmann+200+(2*topScorersByName.indexOf(player)+0.5)*scorersBallRadius;
+                cx = leftMarginfForGriezmann + (bestScorers['"'+player+'"'] -scorersUsed['"'+player+'"']+1)*scorersBallRadius
+            } else if (_.findWhere(scorers, {player: player}).goals ==2 ){
+                cy = slides.griezmann+200+(2*topScorersByName.length+0.5)*scorersBallRadius+Math.floor(twoGoalScorersUsed/ballsInLine)*scorersBallRadius;
+                cx = leftMarginfForGriezmann + ((twoGoalScorersUsed)%ballsInLine+2)*scorersBallRadius;
+                twoGoalScorersUsed +=1;
+            } else if (_.findWhere(scorers, {player: player}).goals ==1){
+                cy = slides.griezmann+200+(2*topScorersByName.length+3.5)*scorersBallRadius+Math.floor(oneGoalScorersUsed/ballsInLine)*scorersBallRadius;//+
+                cx = leftMarginfForGriezmann+((oneGoalScorersUsed)%ballsInLine+2)*scorersBallRadius;
+                oneGoalScorersUsed +=1;
             }
+
+            d3.select(this)
+                .classed('topscorers', true)
+                .classed('hist', false)
+                .classed('timeline-top', false)
+                .transition().delay(1).duration(500)
+                .style('position', 'absolute')
+                .style('top', cy + 'px')
+                .style('left', cx + 'px')
+                .style('width', histBallRadius+ 'px')
+                .style('height', histBallRadius+ 'px')
+            ;
+
         });
 }
 function ballsTransitionMiddleTop(scrollTop) {
@@ -655,16 +637,17 @@ window.onscroll = function () {
     var scrollDown = Math.sign(window.scrollY-prevScrollPos) >=0 ? 1 :0;
     scrollTop=Math.round(scrollTop);
     prevScrollPos = scrollTop;
+    if  (scrollTop>=topContainerInitialOffset){
+        topContainer.style('top',  0+'px').style('position', 'fixed').style('z-index', '999');
+    }
     if (scrollDown==1){
+
         if (scrollTop<slides.title){
             d3.select('#goalnet').style('top', window.innerHeight-scrollTop+'px');
             goalsContainer.transition().delay(1).duration(1000).style('opacity', '0');
         }else if (scrollTop<slides.allMatches){
             d3.select('#goalnet').style('top', 0+'px');
             ballsTransitionMiddleTop(scrollTop);
-        }
-        if  (scrollTop>topContainerInitialOffset){
-             topContainer.style('position', 'fixed').style('top',  0+'px').style('z-index', '999');
         }
         if (scrollTop>slides.title){
             d3.select('#goalnet').style('top', 0+'px');
@@ -680,12 +663,8 @@ window.onscroll = function () {
                 .transition().delay(1000).duration(1)
                 .style('display', 'none');
             goalsContainer.transition().delay(1).duration(1000).style('opacity', '0');
-            griezmann( "Griezmann A.");
         }
-        if (scrollTop>slides.griezmann ){
-            griezmann("Ronaldo C.");
-        }
-        if (scrollTop>slides.ronaldo ){
+        if (scrollTop>slides.histogram ){
             griezmann();
         }
 

@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/main.css">
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/data.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -17,49 +18,172 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="header gray fullwidth">
+<div class="fullwidth header" style="background: #f9f9f9; /* fallback for old browsers */
+background: -webkit-linear-gradient(bottom, #E6E6E6 0%, #f0f0f0 30%,  #ffffff 100%); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(bottom, #E6E6E6 0%, #f0f0f0 30%, #ffffff 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        ">
     <h1 align="center"> SŁOWNICTWO POLSKICH RAPERÓW </h1>
     <div class="fullwidth">
         <div class="subtitle" align="center">
-            <h3  align="center">LICZBA UNIKATOWYCH SŁÓW WŚRÓD PIERWSZYCH</h3>
+            <!--<h3 align="center">LICZBA UNIKATOWYCH SŁÓW WŚRÓD PIERWSZYCH</h3>-->
+            <h3 align="center">Liczba unikatowych słów wśród pierwszych </h3>
             <form id="limit">
                 <em id="rangeValLabel">20000</em>
                 <input type="range" onChange="changeLimit(event.target.value)"
-                       min="10000" max="30000" step="5000" value="20000"/>
+                       min="10000" max="30000" step="5000" value="10000"/>
             </form>
-            <h3 class="" align="center"> SŁÓW TEKSTÓW</h3>
+            <h3 class="" align="center"> słów tekstów</h3>
         </div>
 
     </div>
 </div>
 
-<!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>-->
-<script src="js/data.js"></script>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-    (function (b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l;
-        b[l] || (b[l] =
-            function () {
-                (b[l].q = b[l].q || []).push(arguments)
-            });
-        b[l].l = +new Date;
-        e = o.createElement(i);
-        r = o.getElementsByTagName(i)[0];
-        e.src = 'https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X', 'auto');
-    ga('send', 'pageview');
-</script>
 <div class="svgContainer">
     <svg width="100" height="100">
     </svg>
 
 </div>
+<div class="fullwidth gray">
+    <div align="center" style="font-size:0.8em"><i>Powyższa grafika wykorzystuje kod <a
+        href="http://www.http://fiddle.jshell.net/6cW9u/8/">kod Amelii Bellamy-Royds</a></i></div>
+    <div class="container">
+        <h4>Metodologia</h4>
+        <br>
+        Elokwencja to umiejętność pięknego wysławiania się, a by pięknie się wysławiać potrzebujemy... znać dobrze
+        słowa.
+        Pozycję w tym rankingu określa liczba unikatowych słów użytych wśród pierwszych 10 000 słów artysty.
+        Niekoniecznie
+        określa to elokwencję, raczej jak bogate słownictwo tekstów rapera.
+
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        Ograniczyłem analizę do 10 000 słów. Dzięki temu mogłem porównać takich graczy jak Peja czy Tede z Grubsonem i
+        Kękę.
+        10 000 słów to średnio 25 utworów, czyli około 2 płyt. Wykorzystywałem pierwsze 10 000 słów do jakie udało mi
+        się zgromadzić
+        - niekoniecznie były to całe albumy. Brałem pod uwagę albumy artystów wg. strony discogs.com.
+        Największą trudnością w tym badaniu było dla mnie zgromadzenie danych.
+
+        <br>
+        <br>
+        Teksty wielu piosenek polskich raperów nie
+        są dostępne w serwisach z których korzystałem (<a href="http://www.genius.com">genius.com</a> i <a
+        href="http://www.tekstowo.pl">tekstowo.pl</a>). Dlatego powyższy wykres pokazuję na kilku poziomach
+        - od 10 000 do 30 000 słów, na których znajduje się różna liczba raperów. Co ciekawe, hierarchia pozostaje z
+        grubsza podobna na wszystkich poziomach.
+        <br><br>
+        <hr>
+        <br>
+        <strong>Niepodważalnym liderem w tym zestawieniu jest Tau</strong> (vel Medium), stawkę zamykają na zmianę
+        Miuosh lub Kazik Staszewski.
+        Tak, przy 10 000 słów na drugim miejscu jest MEZO. Na pozostałych poziomach spada nieco niżej - choć wciąż
+        utrzymuje się w czołówce.
+        <br>
+        <br>
+        Metodologia na której się opierałem nazywa się token analysis (po polsku używa się chyba nazwy analiza
+        leksykalna).
+        Zliczyłem ile razy każde słowo pojawia się wśród tekstów artysty.
+        W przypadku języka polskiego deklinacja i inne odmiany stanowią w tym przypadku pewien problem.
+
+    </div>
+</div>
+
+<div class="fullwidth">
+    <div class="container">
+        <h3 align="left">#1. MEDIUM </h3>
+        <hr>
+    </div>
+    <div class="fullwidth">
+        <div class="medium wordcloud-timeline fullwidth"></div>
+    </div>
+</div>
+<div class="fullwidth gray">
+    <div class="container">
+        <h3 align="left">#2. MEZO </h3>
+    </div>
+    <div class="fullwidth ">
+        <div class="container ">
+                <div class="float-left">MEZO?!</div>
+                <div class="mezo wordcloud-portrait float-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fullwidth">
+    <div class="container">
+        <h3 align="left">#3. LUC </h3>
+        <hr>
+    </div>
+    <div class="fullwidth">
+        <div class="container">
+            <div class="float-left">HOMOKSYMORONOMATURA</div>
+            <div class="luc wordcloud-portrait float-right"></div>
+        </div>
+    </div>
+</div>
+<div class="fullwidth gray">
+    <div class="container ">
+        <h3 align="left">#n-1. Kazik </h3>
+    </div>
+    <div class="fullwidth">
+        <div class="container ">
+            <div class="float-left"><i>Idę tam gdzie idę, nie idę gdzie nie idę</i></div>
+            <div class="kazik wordcloud-portrait float-right"></div>
+        </div>
+    </div>
+</div>
+<div class="fullwidth">
+    <div class="container">
+        <h3 align="left">#n. MIUOSH </h3>
+        <hr>
+    </div>
+    <div class="fullwidth">
+        <div class="container ">
+            <div class="float-left"><i>Nawet z betonu czasem róża wyrasta</i></div>
+            <div class="miuosh wordcloud-portrait float-right"></div>
+        </div>
+    </div>
+</div>
+<div class="fullwidth gray">
+    <div class="container">
+        Inspiracją była dla mnie strona <a href="http://www.poly-graph.co/vocabulary.html">poly-graph.co/vocabulary</a>.
+        To podobna analiza,
+        przeprowadzona jednak na podstawie tekstów artystów zza oceanu. Polecam ich artykuły, to idealny przykład
+        wykorzystania
+        analiz ilościowych w dziennkiarstwie. Ich teksty/analizy/wykresy dotyczą głównie muzyki (nie tylko hip-hop),
+        filmu oraz koszykówki&nbsp;:)
+        Polecam.
 
 
-<script src="js/main.js"></script>
+    </div>
+
+</div>
+<footer>
+    <script src="js/main.js"></script>
+    <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>-->
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function (b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function () {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = 'https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+</footer>
 </body>
 </html>

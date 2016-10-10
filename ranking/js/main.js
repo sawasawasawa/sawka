@@ -487,4 +487,4 @@ function changeLimit(limit){
     drawSVG(limit);
     document.getElementById('rangeValLabel').innerHTML = limit;
 };
-changeLimit(20000);
+changeLimit(10000);

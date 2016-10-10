@@ -3114,15 +3114,13 @@ var allData = [{
 // var data= groups.concat(finals);
 var data = allData;
 
+
 var slidesHTMLContent = {
     firstSlide: '<h1>Goals of EURO - summarized</h1>' +
-                '<p>Here you can remember the moments of EURO 2016</p><p> - and the goals - again. </p>' +
+                '<p>Here you can enjoy the moments of EURO 2016 - and the goals - again.</p>' +
                 '<p>Click on a ball to see the goal details. Video links lead to external sources.</p>' +
                 '<p>Each ball represents one goal scored during the championship. </p>' +
-                '<p>Below you can see all the matches sorted chronologically. ' +
-                'The result of the game is represented by the balls located by each teams flag. The balls position from the top of ' +
-                'the flag represents the time of the goal - a ball located at the very top of the flag was scored in the first minutes of the match, ' +
-                'if it is near the lower end of the flag - the goal was scored at the end of the match. </p>',
+                '<p>Below you can see all the matches sorted chronologically. The result of the game is represented by the balls located by team flags. The position of the ball against the flag shows when the goal was scored in the match. </p>',
     histogram: '<h1>When are the most goals scored?</h1></br><h2>Between 40th and 60th minute, and at the end of the game.</h2>',
-    // griezmann:'<h1>MOTOR</h1>'
+    griezmann:'<h1>Who scored most goals?</h1>'
 }
