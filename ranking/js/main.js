@@ -49,8 +49,8 @@ function drawSVG(limit) {
     }
     var maxXScale = Math.round(d3.max(data, function(d) { return d.uniqueCount; })/100)*100+275;
     var minXScale = Math.round(d3.min(data, function(d) { return d.uniqueCount; })/100)*100-200;
-    svg.style("width", svgWidth)
-        .style("height", svgHeight);
+    svg.style("width", svgWidth + 'px')
+        .style("height", svgHeight + 'px');
     var digits = /(\d*)/;
     var margin = 50; //space in pixels from edges of SVG
     var padding = 1; //space in pixels between circles
@@ -106,14 +106,10 @@ function drawSVG(limit) {
     var range = maxXScale - minXScale;
     var numberOfVericalLines = Math.floor((range+200) / 500);
     var firstLineX = Math.round(minXScale / 500)*500;
-console.log('maxXScale', maxXScale);
-console.log('maxXScale', minXScale);
-    console.log('numberOfVericalLines', numberOfVericalLines);
+
     for (q = 0; q <= numberOfVericalLines; q++){
         var xValue = firstLineX + 500*q;
-        console.log(xValue);
         if (xValue < maxXScale && xValue >= minXScale ) {
-            console.log('w if');
             threads.append("line").attr('id', 'verticalLine_' + q)
                 .attr({x1: xScale(firstLineX + 500 * q), x2: xScale(firstLineX + 500 * q), y1: margin, y2: margin})
                 .style('opacity', 0.2)

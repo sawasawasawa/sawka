@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sawka.pro</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script>
+
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-74986079-1', 'auto');
+      ga('send', 'pageview');
+
+
+    </script>
+    <script src="js/typed.js"></script>
+    <script>
+      const linesToAdd = [
+        '&nbsp;',
+        'Check out my&nbsp;<a href="projects" >projects!</a>',
+        'Most recent one is:&nbsp;<a href="http://lyricspainter.sawka.pro">LyricsPainter</a>',
+        '&nbsp;',
+        'Contact me:&nbsp;<a href="mailto:mateusz@sawka.pro">mateusz@sawka.pro</a>',
+        '&nbsp;'
+      ]
+      function insertTypedNode(){
+        const nodes = document.getElementsByClassName('typed')
+        const referenceNode = nodes[nodes.length-1]
+        const newNode = document.createElement('div');
+        const cursor = document.createElement('div');
+        cursor.className = 'typed-cursor';
+        newNode.className = 'typed typed-' + (nodes.length+1);
+        newNode.appendChild(cursor);
+        referenceNode.parentElement.insertBefore(newNode, referenceNode.nextSibling);
+        return '.typed.typed-'+(nodes.length);
+      }
+      function addTypedLine() {
+        const selector = insertTypedNode();
+        if (linesToAdd.length >= 1) {
+          Typed.new(selector, {
+            strings: [linesToAdd.shift()],
+            typeSpeed: 50,
+            backDelay: 1500,
+            callback: linesToAdd.length ? addTypedLine : lastLine
+          });
+        }
+      }
+      function tagLine() {
+        const selector = insertTypedNode();
+        Typed.new(selector, {
+          strings: ['I am a web designer.', 'I am a data analyst.', 'Web developer' ],
+          typeSpeed: 0,
+          startDelay: 500,
+          backDelay: 1000,
+          customBackSpace: {
+            elementsToFilter: [0],
+            stopPosition: 6
+          },
+          callback: addTypedLine
+        });
+      }
+      function lastLine() {
+        const selector = insertTypedNode();
+        Typed.new(selector, {
+          strings: ['Need help with data analysis?', 'Need help with data visualization?',
+            'Need help with web development?', ],
+          typeSpeed: 0,
+          startDelay: 1000,
+          backDelay: 2500,
+          loop:null,
+          customBackSpace: {
+            elementsToFilter: [0,1],
+            stopPosition: 14
+          }
+        });
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        Typed.new('.typed', {
+          strings: ["Hi! ", "My name is Mateusz.", "Mateusz Sawka"],
+          typeSpeed: 1,
+          backDelay: 500,
+          callback: tagLine
+        });
+      });
+    </script>
+</head>
+<body>
+<div id="particles-js">
+
+
+</div>
+
+
+<div class="main col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+    <div class="main-container container-fluid">
+        <div class="windowtitle"><h3>~/sawka.pro</h3></div>
+        <div class="typed typed-1 typed "></div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/particles-configured.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

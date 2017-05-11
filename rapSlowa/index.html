@@ -10,7 +10,7 @@
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="rap słowa" />
 	<meta property="og:description"   content="raperzy namalowani własnymi słowami" />
-	<meta property="og:image"         content="http://sawka.pro/rapSlowa/css/ostr2.jpg" />
+	<meta property="og:image"         content="http://sawka.pro/rapSlowa/css/sharer.png" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -32,17 +32,18 @@
 
 
     </script>
-
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -78,8 +79,8 @@
                 <li class="navLink" data-menuanchor="eldo1"><a href="#eldo">ELDO</a></li>
                 <li class="navLink" data-menuanchor="keke"><a href="#keke">KĘKĘ</a></li>
                 <li class="navLink" data-menuanchor="peja"><a href="#peja">PEJA</a></li>
-                <li class="navLink" data-menuanchor="kaliber"><a href="#peja">KALIBER 44</a></li>
-                <li class="navLink" data-menuanchor="tede"><a href="#peja">TEDE</a></li>
+                <li class="navLink" data-menuanchor="kaliber"><a href="#kaliber">KALIBER 44</a></li>
+                <li class="navLink" data-menuanchor="tede"><a href="#tede">TEDE</a></li>
                 <li class="navLink" data-menuanchor="about"><a href="#about">O co chodzi?</a></li>
                 <li class="navLink" data-menuanchor="order"><a href="#order">Zamów obraz</a></li>
             </ul>
@@ -135,7 +136,7 @@
             <h1>O co chodzi?</h1>
 
             <p>Każdy obraz składa się ze słów wykorzystanych w tekstach danego rapera.</p>
-			<p>To taki portrert psychologiczny namalowany słowami autora.</p>
+			<p>To taki portret psychologiczny namalowany słowami autora.</p>
             <hr>
 
             <p> <strong>Rozmiar</strong> słów odpowiada <strong>częstości</strong> ich występowania w tekstach artysty.</p>
@@ -163,13 +164,14 @@
         <div class="text-center pagination-centered">
             <h1>PODOBA SIĘ?</h1>
 
-            <h1>Udostępnij :)</h1>
-            <!--<h1>Chcesz zobaczyć wizualizacje dla swojego ulubionego artysty?</h1>-->
-			<!--<h2>Albo zobaczyć swoje słowa?</h2>-->
+            <!--<h1>Udostępnij :)</h1>-->
+            <div class="fb-share-button" data-href="http://sawka.pro/rapSlowa/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsawka.pro%2FrapSlowa%2F&amp;src=sdkpreparse">Udostępnij</a></div>            <h1>Chcesz zobaczyć wizualizacje dla swojego ulubionego artysty?</h1>
+
+            <!--<h2>Albo zobaczyć swoje słowa?</h2>-->
 			<!--<h3>A może chcesz taki plakat? </h3>-->
 			<!--<h3>Koszulkę?</h3>-->
 
-            <h5> Napisz do mnie na <a href="mailto:m.e.sawka@gmail.com">m.e.sawka@gmail.com</a> :)</h5>
+            <h2> <a href="mailto:m.e.sawka@gmail.com">Napisz do mnie!</a></h2>
         </div>
     </div>
 </div>
@@ -208,7 +210,7 @@ a2a_config.linkname = "sawka.pro/rapSlowa";
     $(document).ready(function () {
         $('#fullpage').fullpage({
 //            sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-            anchors: ['polskiRap', 'ostr', 'keke','eldo', 'peja', 'kaliber 44' , 'about', 'order', ],
+            anchors: ['polskiRap', 'ostr', 'keke','eldo', 'peja', 'kaliber' , 'tede', 'about', 'order' ],
             menu: '#menu',
             css3: true,
             scrollingSpeed: 1000,
@@ -220,6 +222,7 @@ a2a_config.linkname = "sawka.pro/rapSlowa";
     })
 
 </script>
+
 </body>
 
 </html>

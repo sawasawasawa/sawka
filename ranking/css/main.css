@@ -4,7 +4,7 @@
 /*@import 'https://fonts.googleapis.com/css?family=Kumar+One+Outline';*/
 /*@import 'https://fonts.googleapis.com/css?family=Limelight';*/
 /*@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';*/
-@import 'https://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab|Lato';
+@import 'https://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab|Lato&subset=latin,latin-ext';
 /*@import 'https://fonts.googleapis.com/css?family=Roboto+Slab';*/
 /*@import 'https://fonts.googleapis.com/css?family=Sacramento';*/
 /*@import 'https://fonts.googleapis.com/css?family=Unica+One&subset=latin-ext;';*/
@@ -257,7 +257,7 @@ g.bubbles:hover {
 /*}*/
 
 .container {
-    max-width: 700px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -280,10 +280,12 @@ g.bubbles:hover {
 }
 
 .float-left {
+    max-width:53%;
     float: left;
 }
 
 .float-right {
+    width:350px;
     float: right;
 }
 
@@ -293,3 +295,16 @@ g.bubbles:hover {
     background: linear-gradient(top, #E6E6E6 0%, #f0f0f0 70%, #f0f0f0 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding-bottom:50px;
 }
+
+.shareButtons {
+    z-index:101;
+    position:fixed;
+    bottom: 20px;
+    right:20px;
+}
+
+.ranking-pic {
+    background-image: url(../img/ranking-pic.png);
+}
+
+.firefox {display:none}

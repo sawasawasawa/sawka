@@ -3,19 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>sawka.pro</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <style>line {
-        fill:none;
-        stroke:black;
-        opacity:0.5;}</style>
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-74986079-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+      const linesToAdd = [
+        '',
+        '<a href="grid.html">Animated grid, with animated lines on mouseover</a>',
+        '<a href="points.html">Displaying random dots</a>',
+        '<a href="waterfall.html">Pixel waterfall</a>',
+        '',
+      ]
+      function insertTypedNode() {
+        const nodes = document.getElementsByClassName('typed')
+        const referenceNode = nodes[nodes.length - 1]
+        const newNode = document.createElement('div');
+        const cursor = document.createElement('div');
+        cursor.className = 'typed-cursor';
+        newNode.className = 'typed typed-' + (nodes.length + 1);
+        newNode.appendChild(cursor);
+        referenceNode.parentElement.insertBefore(newNode, referenceNode.nextSibling);
+        return '.typed.typed-' + (nodes.length);
+      }
+      function addTypedLine() {
+        const selector = insertTypedNode();
+        if (linesToAdd.length >= 1) {
+          Typed.new(selector, {
+            strings: [linesToAdd.shift()],
+            typeSpeed: 0,
+            backDelay: 1500,
+            callback: linesToAdd.length ? addTypedLine : lastLine
+          });
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        Typed.new('.typed', {
+          strings: [linesToAdd.shift()],
+          typeSpeed: 0,
+          backDelay: 1500,
+          callback: linesToAdd.length ? addTypedLine : ''
+        });
+      });
+    </script>
 </head>
 <body>
-<ul>
+<div id="particles-js"></div>
 
-    <li><a href="grid.html">Animated grid, with animated lines on mouseover</a></li>
-    <li><a href="points.html">Displaying random dots</a></li>
-    <li><a href="waterfall.html">Pixel waterfall</a></li>
-</ul>
+
+<div class="main col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+    <div class="main-container container-fluid">
+        <div class="windowtitle"><h3>~/sawka.pro</h3></div>
+
+        <div class="console-line">Playing with d3.js</div>
+        <div class="typed"></div>
+    </div>
+</div>
+
+<script src="../js/particles.js"></script>
+<script src="../js/particles-configured.js"></script>
+<script src="../js/typed.js"></script>
+
 </body>
 </html>

@@ -1,17 +1,42 @@
 <!doctype html>
 <html class="no-js" lang="">
 <head>
+    <title></title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
-    <meta name="description" content="">
+    <meta name="description" content="Słownictwo polskich raperów">
+    <meta property="og:url"           content="http://www.sawka.pro/ranking" />
+    <meta property="og:type"          content="article" />
+    <meta property="og:title"         content="Ranking raperów" />
+    <meta property="og:description"   content="według liczby unikatowych słów" />
+    <meta property="og:image"         content="http://www.sawka.pro/rapSlowa/css/sharerRanking.png" />
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
     <link rel="stylesheet" href="css/main.css">
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="js/data.js"></script>
+    <script>
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74986079-1', 'auto');
+        ga('send', 'pageview');
+
+
+    </script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -28,7 +53,7 @@ background: linear-gradient(bottom, #E6E6E6 0%, #f0f0f0 30%, #ffffff 100%); /* W
             <!--<h3 align="center">LICZBA UNIKATOWYCH SŁÓW WŚRÓD PIERWSZYCH</h3>-->
             <h3 align="center">Liczba unikatowych słów wśród pierwszych </h3>
             <form id="limit">
-                <em id="rangeValLabel">20000</em>
+                <em id="rangeValLabel">10000</em>
                 <input type="range" onChange="changeLimit(event.target.value)"
                        min="10000" max="30000" step="5000" value="10000"/>
             </form>
@@ -42,28 +67,29 @@ background: linear-gradient(bottom, #E6E6E6 0%, #f0f0f0 30%, #ffffff 100%); /* W
 <div class="svgContainer">
     <svg width="100" height="100">
     </svg>
-
 </div>
 <div class="fullwidth gray">
-    <div align="center" style="font-size:0.8em"><i>Powyższa grafika wykorzystuje kod <a
-        href="http://www.http://fiddle.jshell.net/6cW9u/8/">kod Amelii Bellamy-Royds</a></i></div>
+    <div align="center" style="font-size:0.8em"><i>Powyższa grafika wykorzystuje <a
+        href="http://fiddle.jshell.net/6cW9u/8/" target="_blank">kod Amelii Bellamy-Royds</a></i></div>
     <div class="container">
-        <h4>Metodologia</h4>
+        <h2>Metodyka badania</h2>
         <br>
         Elokwencja to umiejętność pięknego wysławiania się, a by pięknie się wysławiać potrzebujemy... znać dobrze
         słowa.
-        Pozycję w tym rankingu określa liczba unikatowych słów użytych wśród pierwszych 10 000 słów artysty.
+        Pozycję w tym rankingu określa liczba unikatowych słów użytych wśród pierwszych 10&nbsp;000 słów artysty.
         Niekoniecznie
-        określa to elokwencję, raczej jak bogate słownictwo tekstów rapera.
+        określa to elokwencję, raczej jak bogate jest słownictwo tekstów rapera.
 
         <br>
         <br>
         <hr>
 
         <br>
-        Ograniczyłem analizę do 10 000 słów. Dzięki temu mogłem porównać takich graczy jak Peja czy Tede z Grubsonem i
+        Ograniczyłem analizę do 10&nbsp;000 słów. Dzięki temu mogłem porównać takich graczy jak Peja czy Tede z
+        Grubsonem i
         Kękę.
-        10 000 słów to średnio 25 utworów, czyli około 2 płyt. Wykorzystywałem pierwsze 10 000 słów do jakie udało mi
+        10&nbsp;000 słów to średnio 25 utworów, czyli około 2 płyt. Wykorzystywałem pierwsze 10&nbsp;000 słów do jakie
+        udało mi
         się zgromadzić
         - niekoniecznie były to całe albumy. Brałem pod uwagę albumy artystów wg. strony discogs.com.
         Największą trudnością w tym badaniu było dla mnie zgromadzenie danych.
@@ -71,31 +97,56 @@ background: linear-gradient(bottom, #E6E6E6 0%, #f0f0f0 30%, #ffffff 100%); /* W
         <br>
         <br>
         Teksty wielu piosenek polskich raperów nie
-        są dostępne w serwisach z których korzystałem (<a href="http://www.genius.com">genius.com</a> i <a
-        href="http://www.tekstowo.pl">tekstowo.pl</a>). Dlatego powyższy wykres pokazuję na kilku poziomach
-        - od 10 000 do 30 000 słów, na których znajduje się różna liczba raperów. Co ciekawe, hierarchia pozostaje z
+        są dostępne w serwisach z których korzystałem (<a href="http://www.genius.com" target="_blank">genius.com</a> i <a
+        href="http://www.tekstowo.pl" target="_blank">tekstowo.pl</a>). Dlatego powyższy wykres pokazuję na kilku poziomach
+        - od 10&nbsp;000 do 30 000 słów, na których znajduje się różna liczba raperów. Co ciekawe, hierarchia pozostaje
+        z
         grubsza podobna na wszystkich poziomach.
         <br><br>
+        Dla porównania i ustalenia pewnego kontekstu tych rozważań, policzyłem również statystyki dla <b><i>Pana
+        Tadeusza</i>
+         Adama Mickiewicza</b>. Moja ulubiona polonistka (pozdrawiam Panią Sobkowicz!) mówiła, że był wybitnym
+        fristajlowcem - choć chyba ubrała to w inne słowa. Wieszcz wypada w tym zestawieniu bardzo dobrze; im więcej
+        słów weźmiemy pod uwagę - tym lepiej.
+        <br>
+        <br>
         <hr>
         <br>
         <strong>Niepodważalnym liderem w tym zestawieniu jest Tau</strong> (vel Medium), stawkę zamykają na zmianę
         Miuosh lub Kazik Staszewski.
-        Tak, przy 10 000 słów na drugim miejscu jest MEZO. Na pozostałych poziomach spada nieco niżej - choć wciąż
+        Tak, przy 10&nbsp;000 słów na drugim miejscu jest MEZO. Na pozostałych poziomach spada nieco niżej - choć
+        wciąż
         utrzymuje się w czołówce.
         <br>
         <br>
-        Metodologia na której się opierałem nazywa się token analysis (po polsku używa się chyba nazwy analiza
+        Metodyka na której się opierałem nazywa się token analysis (po polsku używa się chyba nazwy analiza
         leksykalna).
         Zliczyłem ile razy każde słowo pojawia się wśród tekstów artysty.
         W przypadku języka polskiego deklinacja i inne odmiany stanowią w tym przypadku pewien problem.
+        <br>
+        <br>
+        Dla pierwszych i ostatnich w zestawieniu przygotowałem portrety raperów stworzone z najczęściej pojawiających
+        się w ich tekstach słów. Im większe słowo na obrazku, tym częściej pojawia się ono w tekstach rapera. Więcej
+        takich &bdquo;słownych portretów&rdquo; przygotowałem <a href="../rapSlowa" target="_blank">tutaj</a>.
+
 
     </div>
 </div>
 
 <div class="fullwidth">
     <div class="container">
-        <h3 align="left">#1. MEDIUM </h3>
+        <h2 align="left">#1. MEDIUM / TAU </h2>
         <hr>
+        <i>Ciekawe jak stworzyć planetę, ciekawe,<br>
+            Umiem chyba tworzyć atmosferę?</i>
+        <br>
+        <br>
+        Zwycieżca jest jeden, ale oblicza ma dwa. Medium wydał oficjalnie dwa albumy, po czym zwrócił się ku
+        Bogu. Zmiana pseudonimu była konsekwencją nawrócenia. Nie wpłynęło ono na słownictwo rapera - a
+        przynajmniej nie w sensie ilości unikatowych słow; przy analizie zarówno 10 jak i 30 tysięcy wciąż
+        jest na szczycie tabeli. Zmieniła się na pewno treść jego tekstów - na poniższym 'wykresie' sportretowałem
+        Medium i
+        TAU. Na portrecie po prawej łatwo dostrzec słowa bezpośrednio odnoszące się do wiary.
     </div>
     <div class="fullwidth">
         <div class="medium wordcloud-timeline fullwidth"></div>
@@ -103,58 +154,170 @@ background: linear-gradient(bottom, #E6E6E6 0%, #f0f0f0 30%, #ffffff 100%); /* W
 </div>
 <div class="fullwidth gray">
     <div class="container">
-        <h3 align="left">#2. MEZO </h3>
+        <h2 align="left">#2. MEZO </h2>
+        <hr>
     </div>
     <div class="fullwidth ">
         <div class="container ">
-                <div class="float-left">MEZO?!</div>
-                <div class="mezo wordcloud-portrait float-right"></div>
+            <div class="float-left">
+                <br>
+                <i>Mezokracja! Ja tu tworze ustrój, cały świat mam u stóp.<br>
+                    Mezokracja! Siłę mózgu przeciwstawiam sile muskuł.
+                </i>
+                <br>
+                <br>
+                <br>
+
+                Musze przyznać, że było to dla mnie zaskoczenie. Mezo kojarzę
+                właściwie tylko z wyżej zacytowaną piosenką, ciężko mi się zatem do tego wyniku odnieść. Nie
+                przeprowadzałem dokładniejszej analizy oprócz policzenia unikatowych słów, ale przeglądając jego teksty
+                zauważyłem sporo porównań do osób wymienianych z imienia i nazwiska np.:
+                <br>
+                <i>Od lat pod jedną banderą Lajner, Eros, Herkules, Mez, skuteczny jak Patrick Kluivert.</i>
+                <br>
+                Przypuszczam że to jeden z czynników osiągnięcia tak wysokiej pozycji, drugi - słowotwórstowo w stylu
+                &bdquo;mezokracji&rdquo;.
             </div>
+            <div class="mezo wordcloud-portrait float-right"></div>
         </div>
     </div>
 </div>
+</div>
 <div class="fullwidth">
     <div class="container">
-        <h3 align="left">#3. LUC </h3>
+        <h2 align="left">#3. LUC </h2>
         <hr>
     </div>
     <div class="fullwidth">
         <div class="container">
-            <div class="float-left">HOMOKSYMORONOMATURA</div>
+            <div class="float-left">
+                <br>
+                <i>Hiperkonsumpcja nie posiada mety,<br>
+                    rośnie jak penis a wraz z nią apetyt,<br>
+                    toż to psychomateriomarionety
+                </i>
+                <br>
+                <br>
+                <br>
+                Słowotwórstwo i zabawy słowne to jego domena, o czym świadczą choćby tytuły albumów jego autorstwa -
+                &bdquo;Homoksymoronomatura&rdquo;, &bdquo;Energocyrkulacje&rdquo;.
+                Przy
+                analizie
+                15&nbsp;000 słów LUC jest pierwszy w rankingu - właściwie tego się spodziewałem przed rozpoczęciem
+                analizy. Zaskoczeniem było dla mnie raczej to, że miałem problem ze znalezieniem kilku ciekawych
+                wersów do
+                umieszczenia na początku tego akapitu.
+            </div>
             <div class="luc wordcloud-portrait float-right"></div>
         </div>
     </div>
 </div>
 <div class="fullwidth gray">
     <div class="container ">
-        <h3 align="left">#n-1. Kazik </h3>
-    </div>
-    <div class="fullwidth">
-        <div class="container ">
-            <div class="float-left"><i>Idę tam gdzie idę, nie idę gdzie nie idę</i></div>
-            <div class="kazik wordcloud-portrait float-right"></div>
-        </div>
-    </div>
-</div>
-<div class="fullwidth">
-    <div class="container">
-        <h3 align="left">#n. MIUOSH </h3>
+        <h2 align="left">#45. Kazik </h2>
         <hr>
     </div>
     <div class="fullwidth">
         <div class="container ">
-            <div class="float-left"><i>Nawet z betonu czasem róża wyrasta</i></div>
-            <div class="miuosh wordcloud-portrait float-right"></div>
+            <div class="kazik wordcloud-portrait float-right"></div>
+            <br>
+            <div class="float-left"><i>Idę tam gdzie idę, nie idę gdzie nie idę</i>
+                <br>
+                <br>
+
+                Kazik ostatni? Wieszcz studentów politechnik na tak niskiej pozycji? Ale przecież on ma świetne
+                teksty! <br>
+                Podobnie
+                jak Łona czy
+                Fisz, którzy też ku
+                mojemu
+                zdumieniu znaleźli się na
+                końcu stawki.
+                <br>
+                Jeżeli zastanawiasz sie dlaczego Kazik jest ostatni spójrz na wyżej przytoczony wers. <br>
+                Dużo w nim
+                powtórzeń, prawda?
+
+                <br>
+                <br>
+                (W razie wątpliwości co do &bdquo;raperskości&rdquo; pana Staszewskiego, dla
+                przypomnienia
+                -
+                <br><a href="https://www.youtube.com/watch?v=tgulIVe0xqY" target="_blank"><i>Mój los to moje zatracenie</i></a>).
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="fullwidth">-->
+<!--<div class="container">-->
+<!--<h3 align="left">#n. MIUOSH </h3>-->
+<!--<hr>-->
+<!--</div>-->
+<!--<div class="fullwidth">-->
+<!--<div class="container ">-->
+<!--<div class="float-left"><i>Nawet z betonu czasem róża wyrasta</i></div>-->
+<!--<div class="miuosh wordcloud-portrait float-right"></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="fullwidth">
+    <div class="container">
+        <h2 align="left">Dlaczego Kazik jest ostatni? </h2>
+        <hr>
+    </div>
+    <div class="fullwidth">
+        <div class="container ">
+            Przede wszystkim wynika to z dużej liczby powtórzeń w jego tekstach, tak jak w wersie przytoczonym
+            powyżej. Oprócz powtórzeń pojedynczych słów, w refrenach często powtarza kilka razy jeden wers, co
+            zwiększa ogólną liczbę słów, natomiast liczba unikatów pozostaje niezmienna. Trzecim czynnikiem o
+            niebanalnym wpływie był sposób zapisu tekstów na których się opierałem. W przypadku tekstów 'typowych
+            raperów' powtórzenia w refrenach często były zaznaczone na końcu wersu liczbą powtórzeń (&bdquo;x4&rdquo;), natomiast w
+            piosenkach Kazika często wypisane były jedno pod drugim wszystkie powtórzenia.
+            <br>
+            <h2 align="left">Wnioski i zaskoczenia</h2>
+            <hr>
+            Niespodzianek było wiele. Nie spodziewałem się Medium/TAU na szczycie, Kazik na samym końcu
+            zestawienia zaskoczył mnie tak
+            samo jak Łona czy Fisz, którzy uplasowali się w drugiej połowie. Przypuszczałem, że Eldo uplasuje się
+            wyżej. Z drugiej strony zaskoczyła mnie stosunkowo wysoka pozycja PIHa i Molesty.
+            <br>
+            <br>
+            Nie ulega wątpliwości, że liczba unikatowych słów nie świadczy o <i>jakości</i> tekstów. Słowne zabawy
+            wymagają nie lada zaprawy, a kilku artystom z końcówki tej listy nie sposób odmówić kunsztu.
+            <br>
+            <br>
+
+
+                <div class="container ">
+            <h2>Dziekuję za uwagę!</h2>
+                    </div>
+            <br>
+            Mimo wszelkich niedoskonałości przygotowanie tej analizy było dla mnie wspaniałą zabawą i okazją do nauki
+            programowania w pythonie. Jeżeli podobało się i Tobie to proszę
+            <div class="fb-share-button"
+                 data-href="http://www.sawka.pro/ranking"
+                 data-layout="button_count"
+                 data-size="large"
+                 data-mobile-iframe="true">
+                    <a class="fb-xfbml-parse-ignore"
+                                          target="_blank"
+                                          href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.sawka.pro%2Franking&amp;src=sdkpreparse">Udostępnij</a></div>
+            <br>   <br>
+            Brakuje Ci tu ulubionego rapera? <a href="mailto:m.e.sawka@gmail.com">Napisz do mnie na m.e
+            .sawka@gmail.com</a>, postaram sie
+            policzyć i jego
+                                                słowa :)
         </div>
     </div>
 </div>
 <div class="fullwidth gray">
     <div class="container">
-        Inspiracją była dla mnie strona <a href="http://www.poly-graph.co/vocabulary.html">poly-graph.co/vocabulary</a>.
+        Inspiracją była dla mnie strona <a href="http://www.poly-graph.co/vocabulary.html" target="_blank" >poly-graph
+        .co/vocabulary</a>.
         To podobna analiza,
         przeprowadzona jednak na podstawie tekstów artystów zza oceanu. Polecam ich artykuły, to idealny przykład
         wykorzystania
-        analiz ilościowych w dziennkiarstwie. Ich teksty/analizy/wykresy dotyczą głównie muzyki (nie tylko hip-hop),
+        analiz ilościowych w dziennikarstwie. Ich teksty/analizy/wykresy dotyczą głównie muzyki (nie tylko hip-hop),
         filmu oraz koszykówki&nbsp;:)
         Polecam.
 
@@ -168,22 +331,18 @@ background: linear-gradient(bottom, #E6E6E6 0%, #f0f0f0 30%, #ffffff 100%); /* W
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function (b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function () {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = 'https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X', 'auto');
-        ga('send', 'pageview');
-    </script>
+
 </footer>
+<div class="shareButtons a2a_kit a2a_kit_size_32 a2a_default_style">
+    Podziel się!
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+</div>
+<script>
+    var a2a_config = a2a_config || {};
+    a2a_config.linkname = "sawka.pro/rapSlowa";
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 </body>
 </html>
